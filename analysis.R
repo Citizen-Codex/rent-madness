@@ -88,6 +88,7 @@ census_raw_zip_rent <- read_csv("data/ACS_zip_contract_rent.csv", skip = 1)
 census_raw_zip_population <- read_csv("data/ACS_zip_populations.csv", skip = 1)
 census_raw_zip_housing <- read_csv("data/ACS_zip_housing_characteristics.csv", skip = 1)
 census_raw_zip_income <- read_csv("data/ACS_zip_income.csv", skip = 1)
+census_raw_zip_housing_age <- read_csv("data/ACS_zip_housing_age.csv", skip = 1)
 
 census_processed_zip_rent <- census_raw_zip_rent %>%
   select(
@@ -106,9 +107,18 @@ census_processed_zip_population <- census_raw_zip_population %>%
   select(
     ZIP = `Geographic Area Name`,
     TOTAL_POPULATION = `Estimate!!SEX AND AGE!!Total population`,
-    WHITE_POPULATION = `Estimate!!RACE!!Total population!!One race!!White`
+    WHITE_POPULATION = `Estimate!!RACE!!Total population!!One race!!White`,
+    HISPANIC_PERCENT = `Percent!!HISPANIC OR LATINO AND RACE!!Total population!!Hispanic or Latino (of any race)`,
+    ASIAN_PERCENT = `Percent!!RACE!!Total population!!One race!!Asian`,
+    BLACK_PERCENT = `Percent!!RACE!!Total population!!One race!!Black or African American`,
+    WHITE_PERCENT = `Percent!!RACE!!Total population!!One race!!White`,
+    OTHER_PERCENT = `Percent!!RACE!!Total population!!One race!!Some Other Race`
   ) %>%
-  mutate(NON_WHITE_PERCENT = ifelse(TOTAL_POPULATION != 0, (TOTAL_POPULATION - WHITE_POPULATION) / TOTAL_POPULATION, 0))
+  mutate(NON_WHITE_PERCENT = ifelse(TOTAL_POPULATION != 0, 100 * (TOTAL_POPULATION - WHITE_POPULATION) / TOTAL_POPULATION, 0)) %>%
+  mutate(across(2:9, ~ case_when(
+    . == "-" ~ NA,
+    .default = as.numeric(.)
+  )))
 
 census_processed_zip_housing <- census_raw_zip_housing %>%
   select(
@@ -120,6 +130,24 @@ census_processed_zip_housing <- census_raw_zip_housing %>%
     . == "-" ~ NA,
     .default = as.numeric(.)
   )))
+
+current_year <- 2022
+
+census_processed_zip_housing_age <- census_raw_zip_housing_age %>%
+  select(
+    ZIP = `Geographic Area Name`,
+    Y_PRE_1939 = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!1939 or earlier`,
+    Y_1940_1959 = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!1940 to 1959`,
+    Y_1960_1979 = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!1960 to 1979`,
+    Y_1980_1999 = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!1980 to 1999`,
+    Y_2000_2009 = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!2000 to 2009`,
+    Y_2010_2019 = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!2010 to 2019`,
+    Y_2020_PLUS = `Estimate!!Percent renter-occupied housing units!!Occupied housing units!!YEAR STRUCTURE BUILT!!2020 or later`
+  ) %>%
+  mutate(
+    MEAN_AGE = (as.numeric(Y_PRE_1939) * (current_year - 1939) + as.numeric(Y_1940_1959) * (current_year - 1950) + as.numeric(Y_1960_1979) * (current_year - 1970) + as.numeric(Y_1980_1999) * (current_year - 1990) + as.numeric(Y_2000_2009) * (current_year - 2005) + as.numeric(Y_2010_2019) * (current_year - 2015) + as.numeric(Y_2020_PLUS) * (current_year - 2020)) / 100,
+    .keep = "unused"
+  )
 
 census_processed_zip_income <- census_raw_zip_income %>%
   select(
@@ -145,6 +173,10 @@ census_processed_zip <-
   ) %>%
   merge(
     census_processed_zip_income,
+    by = "ZIP"
+  ) %>%
+  merge(
+    census_processed_zip_housing_age,
     by = "ZIP"
   ) %>%
   rowwise() %>%
@@ -175,12 +207,11 @@ st_write(merged_data_zip_sf, "data/merged_rent_data_zip_sf.geojson")
 
 model <- lm(
   data = merged_data_zip_sf %>% filter(GAP < 2),
-  GAP ~ SINGLE_FAMILY_PERCENT + RENT_PERCENT + log(MEDIAN_INCOME) + POPULATION_DENSITY + AREA
+  GAP ~ SINGLE_FAMILY_PERCENT + RENT_PERCENT + log(MEDIAN_INCOME) + POPULATION_DENSITY + OTHER_PERCENT + log(MEDIAN_INCOME) * RENT_PERCENT + MEAN_AGE
 )
 summary(model)
 
-predict(model, newdata = merged_data_zip_sf %>% filter(GAP < 2)) %>% hist()
-
+# Check the amount of population covered by the zillow data
 merged_data_zip %>%
   group_by(is.na(GAP)) %>%
   summarise(population = sum(TOTAL_POPULATION)) %>%
