@@ -1,6 +1,7 @@
 library(tidyverse)
 library(ipumsr)
 library(spatstat)
+library(sf)
 
 zillow_raw_county <- read_csv("data/County_zori_uc_sfrcondomfr_sm_month.csv")
 
@@ -83,9 +84,12 @@ zillow_processed_zip <- zillow_raw_zip %>%
   relocate(STATE_NAME, COUNTY_NAME) %>%
   rename(ZIP = RegionName)
 
-census_raw_zip <- read_csv("data/ACS_zip_contract_rent.csv", skip = 1)
+census_raw_zip_rent <- read_csv("data/ACS_zip_contract_rent.csv", skip = 1)
+census_raw_zip_population <- read_csv("data/ACS_zip_populations.csv", skip = 1)
+census_raw_zip_housing <- read_csv("data/ACS_zip_housing_characteristics.csv", skip = 1)
+census_raw_zip_income <- read_csv("data/ACS_zip_income.csv", skip = 1)
 
-census_processed_zip <- census_raw_zip %>%
+census_processed_zip_rent <- census_raw_zip_rent %>%
   select(
     ZIP = `Geographic Area Name`,
     MEDIAN_ACS_RENT = `Estimate!!Median contract rent`
@@ -96,15 +100,88 @@ census_processed_zip <- census_raw_zip %>%
       MEDIAN_ACS_RENT == "-" ~ NA,
       .default = as.numeric(MEDIAN_ACS_RENT)
     )
+  )
+
+census_processed_zip_population <- census_raw_zip_population %>%
+  select(
+    ZIP = `Geographic Area Name`,
+    TOTAL_POPULATION = `Estimate!!SEX AND AGE!!Total population`,
+    WHITE_POPULATION = `Estimate!!RACE!!Total population!!One race!!White`
   ) %>%
-  filter(!is.na(MEDIAN_ACS_RENT)) %>%
+  mutate(NON_WHITE_PERCENT = ifelse(TOTAL_POPULATION != 0, (TOTAL_POPULATION - WHITE_POPULATION) / TOTAL_POPULATION, 0))
+
+census_processed_zip_housing <- census_raw_zip_housing %>%
+  select(
+    ZIP = `Geographic Area Name`,
+    SINGLE_FAMILY_PERCENT = `Estimate!!Total!!Total households!!UNITS IN STRUCTURE!!1-unit structures`,
+    RENT_PERCENT = `Estimate!!Total!!Total households!!HOUSING TENURE!!Renter-occupied housing units`
+  ) %>%
+  mutate(across(2:3, ~ case_when(
+    . == "-" ~ NA,
+    .default = as.numeric(.)
+  )))
+
+census_processed_zip_income <- census_raw_zip_income %>%
+  select(
+    ZIP = `Geographic Area Name`,
+    MEDIAN_INCOME = `Estimate!!Households!!Median income (dollars)`
+  ) %>%
+  mutate(
+    MEDIAN_INCOME = case_when(
+      MEDIAN_INCOME == "-" ~ NA,
+      .default = as.numeric(MEDIAN_INCOME)
+    )
+  )
+
+census_processed_zip <-
+  merge(
+    census_processed_zip_rent,
+    census_processed_zip_population,
+    by = "ZIP"
+  ) %>%
+  merge(
+    census_processed_zip_housing,
+    by = "ZIP"
+  ) %>%
+  merge(
+    census_processed_zip_income,
+    by = "ZIP"
+  ) %>%
   rowwise() %>%
   mutate(ZIP = str_split(ZIP, " ")[[1]][2])
 
 merged_data_zip <- merge(
   zillow_processed_zip,
   census_processed_zip,
-  by = "ZIP"
-)
+  by = "ZIP",
+  all = TRUE
+) %>%
+  mutate(GAP = (MEAN_ZORI - MEDIAN_ACS_RENT) / MEDIAN_ACS_RENT)
 
 write_csv(merged_data_zip, "data/merged_rent_data_zip.csv")
+
+sf_use_s2(FALSE)
+
+zip_shapes <- st_read("data/USA_ZIP_Code_Boundaries/") %>%
+  st_make_valid() %>%
+  mutate(AREA = st_area(geometry))
+
+merged_data_zip_sf <- merged_data_zip %>%
+  merge(zip_shapes, by.x = "ZIP", by.y = "ZIP_CODE", all = TRUE) %>%
+  mutate(POPULATION_DENSITY = as.numeric(TOTAL_POPULATION / AREA)) %>%
+  filter(POPULATION_DENSITY > 0 & is.finite(POPULATION_DENSITY))
+
+st_write(merged_data_zip_sf, "data/merged_rent_data_zip_sf.geojson")
+
+model <- lm(
+  data = merged_data_zip_sf %>% filter(GAP < 2),
+  GAP ~ SINGLE_FAMILY_PERCENT + RENT_PERCENT + log(MEDIAN_INCOME) + POPULATION_DENSITY + AREA
+)
+summary(model)
+
+predict(model, newdata = merged_data_zip_sf %>% filter(GAP < 2)) %>% hist()
+
+merged_data_zip %>%
+  group_by(is.na(GAP)) %>%
+  summarise(population = sum(TOTAL_POPULATION)) %>%
+  mutate(percent = population / sum(population))
