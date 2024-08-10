@@ -194,14 +194,14 @@ write_csv(merged_data_zip, "data/merged_rent_data_zip.csv")
 
 sf_use_s2(FALSE)
 
-zip_shapes <- st_read("data/USA_ZIP_Code_Boundaries/") %>%
+zip_shapes <- st_read("data/USA_ZIP_Code_Boundaries.json") %>%
   st_make_valid() %>%
   mutate(AREA = st_area(geometry))
 
 merged_data_zip_sf <- merged_data_zip %>%
   merge(zip_shapes, by.x = "ZIP", by.y = "ZIP_CODE", all = TRUE) %>%
   mutate(POPULATION_DENSITY = as.numeric(TOTAL_POPULATION / AREA)) %>%
-  filter(POPULATION_DENSITY > 0 & is.finite(POPULATION_DENSITY))
+  filter(AREA > 0)
 
 st_write(merged_data_zip_sf, "data/merged_rent_data_zip_sf.geojson")
 
