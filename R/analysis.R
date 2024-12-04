@@ -3,6 +3,10 @@ library(ipumsr)
 library(spatstat)
 library(sf)
 
+if (basename(getwd()) != "R") {
+  setwd("R")
+}
+
 zillow_raw_county <- read_csv("data/County_zori_uc_sfrcondomfr_sm_month.csv")
 
 zillow_processed_county <- zillow_raw_county %>%
@@ -182,12 +186,17 @@ census_processed_zip <-
   rowwise() %>%
   mutate(ZIP = str_split(ZIP, " ")[[1]][2])
 
+zip_city <- read_csv("data/zip_city_crosswalk.csv") %>% 
+  select(ZIP, CITY = USPS_ZIP_PREF_CITY, STATE = USPS_ZIP_PREF_STATE) %>%
+  unique()
+
 merged_data_zip <- merge(
   zillow_processed_zip,
   census_processed_zip,
   by = "ZIP",
   all = TRUE
 ) %>%
+  merge(zip_city, by = "ZIP", all.x = TRUE) %>%
   mutate(GAP = (MEAN_ZORI - MEDIAN_ACS_RENT) / MEDIAN_ACS_RENT)
 
 write_csv(merged_data_zip, "data/merged_rent_data_zip.csv")
@@ -216,3 +225,14 @@ merged_data_zip %>%
   group_by(is.na(GAP)) %>%
   summarise(population = sum(TOTAL_POPULATION)) %>%
   mutate(percent = population / sum(population))
+
+
+# Check the top 20 cities by population
+merged_data_zip %>%
+  group_by(STATE, CITY) %>%
+  summarise(
+    population = sum(TOTAL_POPULATION, na.rm = TRUE),
+    median_gap = median(GAP, na.rm = TRUE)
+  ) %>%
+  arrange(desc(population)) %>%
+  write_csv("data/cities_median_gaps.csv")
