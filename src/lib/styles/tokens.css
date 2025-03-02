@@ -1,0 +1,14 @@
+@theme {
+  --font-serif: 'NotoSerif', 'serif';
+  --font-mono: 'RobotoMono', 'monospace';
+
+  --color-yellow: #DCBE6E;
+  --color-pink: #EE95E6;
+  --color-black-offset: #292929;
+  --color-white-offset: #FFF9F2;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-red: #D65E39;
+  --color-blue: #4A8A9A;
+  --color-green: #28644E;
+}

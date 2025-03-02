@@ -1,0 +1,29 @@
+hed: Rent Madness
+dek: Why is America’s rental data so bad, why does it matter, and what can we do about it?
+cta-explore: Explore the data
+cta-solutions: Jump to solutions
+
+
+chapter-1:
+  hed: The Real Stakes of Bad Rental Data
+  dek: One vivid example of these dynamics is the story of JoAnn Ellis, a soon-to-be grandmother living in the booming Phoenix metro area in 2021. 
+  content: >
+    As reported by the Arizona Republic, JoAnn struggled throughout her life with housing insecurity, but that year she finally got off a lengthy waitlist and received some  government help.
+
+    Relief came in the form of the federal Housing Choice Voucher program, which assists low-income renters in finding housing on the private rental market. It pays the difference between what they can afford (set at 30 percent of their income) and the full rent of a moderately priced rental unit. However, relief soon turned into despair. JoAnn spent five months searching for an apartment, but she could not find a unit in her budget and with a landlord accepting vouchers. Housing vouchers operate under a use-it-or-lose principle and voucher holders are given a limited time for their searches. After JoAnn’s voucher expired, she was forced to move into a crowded rental with her pregnant daughter’s family.  
+
+    Crucial context for JoAnn’s story is the rapid rent increases in Phoenix over the past few years. Market rents in the Phoenix area are reported to have risen nearly 30 percent between 2021 and 2022, faster than the rental payment standards of the federal government. Rental statistics are not just background details. How rental data are measured, aggregated, and reported directly influence the housing outcomes of renters like JoAnn. If the statistics data the government uses to set rental assistance amounts do not match the reality on the ground, people can go unhoused. It might appear as if we have a clear grasp of rental housing costs given the frequency with which these statistics are cited in housing conversations, but looking under the hood of rental statistics, one can see a much fuzzier picture.
+
+chapter-2:
+  hed: Nationwide Rent Tour 
+  dek: There are many sources of rental data but only a few are publicly available and cover many parts of the country. We focus on Zillow ZORI data and ACS to build the start of a Rent Transparency Index.
+  cta: Scroll 
+  steps:
+    - content: Using these two data sources, we analyze discrepancies in rent prices between them, and categorize zip codes into six categories ranging from “no data available” to “the different data sources are within a reasonable range of each other.”
+    - content: When zooming into Phoenix, notice the dark red zip codes in a few regions of the city. These are places where the rental prices can differ by almost a factor of two from one data source to another.
+    - content: Next, we go to San Francisco—a city that regularly ranks as one of the most expensive in the country for renters. Looking to the southwest, the Bayview neighborhood has the largest rent discrepancy in the city and is also one of the most disadvantaged. Sometimes referred to as the “Last Black neighborhood of San Francisco,” it’s an ongoing site of struggles over gentrification and displacement.
+    - content: Not all cities appear to have rents that substantially diverge depending on the data source. For example, the zip codes in Seattle, WA, have a relatively low rent-price discrepancy.
+    - content: In King County, where Seattle is located, the median rent discrepancy of zip codes with available data is only 4.5 percent. This discrepancy is the lowest in comparison to the 25 largest counties in the U.S. by population, which have a median discrepancy of 18.6 percent.
+    - content: In some parts of the country, one can see a clear spatial distribution of rent discrepancies, such as the Atlanta metro area. Rent discrepancies are apparent in central city areas as well as in a ring of zip codes that surround the outlying areas
+    - content: The absence of rental data is also a significant concern, especially in rural areas. Sparsely populated states like Montana have limited rental data on private apartment listing websites outside the larger cities like Bozeman.
+    - content: Missoula, the largest city of 75 thousand, doesn’t even appear. Rural areas also tend to have far fewer apartment buildings than single-family homes. They often also rent mobile homes. Lastly, higher rates of informal renting of spare rooms may also lead to fewer units listed on rental platforms like Zillow.

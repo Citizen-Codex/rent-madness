@@ -1,1 +1,10 @@
 @import 'tailwindcss';
+
+@import './fonts.css';
+@import './tokens.css';
+
+@layer base {
+  :root {
+    @apply font-serif;
+  }
+}
