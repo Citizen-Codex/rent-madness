@@ -1,7 +1,15 @@
 <script lang="ts">
-	import Hero from '$lib/components/Hero.svelte';
-	import Map from '$lib/components/Map.svelte';
+	import Hero from '$lib/components/sections/Hero.svelte';
+	import Scrolly from '$lib/components/sections/Scrolly.svelte';
+
+	const { data } = $props();
+
+	$inspect(data);
 </script>
 
 <Hero />
-<Map />
+
+<section class="h-screen bg-white"></section>
+<Scrolly />
+
+<section class="h-screen bg-white"></section>

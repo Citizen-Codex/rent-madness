@@ -6,10 +6,14 @@
 	mapbox.accessToken = PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 	const mapStyle = 'mapbox://styles/arjunkakkar8/clzoilzc1006y01pzaqwl1csh';
+
+	export const baseView = { zoom: 3.64, center: [-97.648, 40.205] };
 </script>
 
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+
+	const { view } = $props();
 
 	let map: Map | null = $state(null);
 	let mapContainer: HTMLElement | null = $state(null);
@@ -41,6 +45,14 @@
 
 	onDestroy(() => {
 		if (map) map.remove();
+	});
+
+	$effect(() => {
+		if (map)
+			map.flyTo({
+				...view,
+				essential: true
+			});
 	});
 </script>
 

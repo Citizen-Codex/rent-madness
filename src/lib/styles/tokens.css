@@ -12,3 +12,20 @@
   --color-blue: #4A8A9A;
   --color-green: #28644E;
 }
+
+
+@utility heading {
+  @apply font-serif text-5xl font-semibold text-black leading-none;
+}
+
+@utility subheading {
+  @apply font-serif text-2xl text-black-offset leading-7;
+}
+
+@utility body {
+  @apply font-serif text-lg text-black;
+}
+
+@utility cta {
+  @apply font-mono font-medium text-xl leading-none uppercase;
+}
