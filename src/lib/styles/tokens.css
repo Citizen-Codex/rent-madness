@@ -29,3 +29,15 @@
 @utility cta {
   @apply font-mono font-medium text-xl leading-none uppercase;
 }
+
+@utility content-well-small {
+  @apply max-w-md w-full mx-auto px-4;
+}
+
+@utility content-well-medium {
+  @apply w-full max-w-3xl px-4 md:px-8;
+}
+
+@utility content-well-large {
+  @apply w-full px-4 md:px-8;
+}

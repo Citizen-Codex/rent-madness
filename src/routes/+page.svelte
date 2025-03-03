@@ -9,7 +9,6 @@
 
 <Hero />
 
-<section class="h-screen bg-white"></section>
 <Scrolly />
 
 <section class="h-screen bg-white"></section>
