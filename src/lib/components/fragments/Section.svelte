@@ -1,6 +1,8 @@
 <script lang="ts">
 	let {
 		children,
+		background = true,
+		padding = true,
 		bordered = false,
 		borderTop = bordered,
 		borderBottom = bordered,
@@ -10,7 +12,9 @@
 
 <section
 	class={[
-		'border-gray relative flex flex-col gap-16 bg-white py-16',
+		'border-gray relative flex flex-col gap-16',
+		padding && 'py-16',
+		background && 'bg-white',
 		borderTop && 'border-t',
 		borderBottom && 'border-b',
 		classes

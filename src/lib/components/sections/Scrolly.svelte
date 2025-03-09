@@ -18,7 +18,7 @@
 	);
 </script>
 
-<Scroller top={0} threshold={0.7} bottom={0.9} query=".step" bind:index>
+<Scroller top={0} threshold={0.7} bottom={1} query=".step" bind:index>
 	{#snippet background()}
 		<Basemap {view} />
 	{/snippet}

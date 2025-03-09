@@ -23,5 +23,3 @@
 <Diverge />
 <Solutions />
 <Conclusion />
-
-<section class="h-screen bg-white"></section>
