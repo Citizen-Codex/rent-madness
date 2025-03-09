@@ -3,6 +3,22 @@ dek: Why is America’s rental data so bad, why does it matter, and what can we 
 cta-explore: Explore the data
 cta-solutions: Jump to solutions
 
+intro:
+  byline: >
+    By [Timi O.](/) and [Arjun K.](/)
+
+    Editing by [Biniam G.](/)
+
+    Design by [Chloe P.](/) and [MaSara M.](/)
+  content-before: Think back to your last move. It probably evokes memories of anxiety, dread, and sweat. Summer is the season most of America’s 44.5 million renter households move. Last year roughly 17 percent of renters changed addresses. While finding new housing is stressful for all renters, housing searches can be particularly grueling for low-income families.
+  content-after: >
+    The post-pandemic rise and fall in inflation has brought sharper attention to prices in a variety of economic sectors—including grocery, transportation, and child care—and apartment rents are no exception.
+
+
+    Despite making up a significant portion of Americans' expenses, comprehensive and accurate data on rent prices is surprisingly scarce. In the U.S., rental data is calculated in a complicated and disjointed manner. There are multiple governmental and private-sector rental datasets that substantially diverge, often with differing methodologies.  
+
+
+    Messy rental data has a real impact on addressing the affordable housing crisis in U.S. cities. Government officials not only use these data to develop rent standards for housing assistance programs—but also to geographically target affordable housing programs or decide whether to pursue regulations to address the displacement of low-income residents. To adequately address the housing crisis, accurate data is essential.  
 
 chapter-1:
   hed: The Real Stakes of Bad Rental Data

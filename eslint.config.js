@@ -29,5 +29,19 @@ export default ts.config(
 	},
 	{
 		ignores: ['build/', '.svelte-kit/', 'dist/']
+	},
+	{
+		rules: {
+			'svelte/no-at-html-tags': 'off',
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{
+					argsIgnorePattern: '^_',
+					destructuredArrayIgnorePattern: '^_',
+					varsIgnorePattern: '^(_|\\$\\$)',
+					ignoreRestSiblings: true
+				}
+			]
+		}
 	}
 );

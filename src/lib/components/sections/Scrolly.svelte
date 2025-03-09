@@ -6,9 +6,10 @@
 
 	import { page } from '$app/state';
 
+	// @ts-expect-error: No types available for svelte-scroller
 	import Scroller from '@sveltejs/svelte-scroller';
 
-	const content = $derived(page.data['chapter-2']);
+	const content = page.data['chapter-2'];
 	let index: number | undefined = $state();
 	let view = $derived(
 		!index || index === 0 || !content.steps[index - 1].view
@@ -26,20 +27,20 @@
 		<div class="relative flex flex-col items-center px-4 md:px-8">
 			<!-- Intro -->
 			<div
-				class="bg-white-offset step mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border px-6 py-8"
+				class="step mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border bg-white px-6 py-8"
 			>
 				<ChapterNumber>2</ChapterNumber>
 				<h2 class="heading">{content.hed}</h2>
 				<p class="body">{content.dek}</p>
 				<div class="cta flex items-center gap-4">
 					{content.cta}
-					<IconCircle icon="mdi:chevron-down" class="bg-red text-2xl text-white" />
+					<IconCircle icon="mdi:chevron-down" class="bg-orange text-2xl text-white" />
 				</div>
 			</div>
 
 			<!-- Steps -->
 			{#each content.steps as step, i (i)}
-				<div class="body step mb-[90vh] max-w-md rounded border border-black bg-white p-6">
+				<div class="body step bg-white-true mb-[90vh] max-w-md rounded border border-black p-6">
 					<p class="highlighted">{@html md(step.content)}</p>
 				</div>
 			{/each}
