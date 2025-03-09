@@ -10,11 +10,13 @@
 >
 	<Background />
 
-	<div class="absolute top-8 text-white">
+	<div class="absolute top-8 z-100 text-white">
 		<Wordmark />
 	</div>
 
-	<div class="content-well-medium relative flex flex-col items-center gap-8 text-center">
+	<div
+		class="content-well-medium pointer-events-none relative flex flex-col items-center gap-8 text-center"
+	>
 		{#each [0, 1, 2, 3] as i (i)}
 			<div class="absolute" style:inset={`${-(2 + i) * 30}%`}>
 				{#each ['orange', 'blue', 'yellow', 'green'] as color (color)}
@@ -32,14 +34,14 @@
 		{/each}
 		<h1 class="py-8 text-8xl font-semibold text-white">{page.data.hed}</h1>
 		<p class="subheading border-y border-white p-6 font-medium text-white">{page.data.dek}</p>
-		<a href="#explorer" class="cta group flex items-center gap-4 bg-white p-4">
+		<a href="#explorer" class="cta group pointer-events-auto flex items-center gap-4 bg-white p-4">
 			{page.data['cta-explore']}
 			<iconify-icon
 				class="text-xl transition-transform group-hover:translate-x-1"
 				icon="gridicons:chevron-right"
 			></iconify-icon>
 		</a>
-		<a href="#solutions" class="cta group px-4 text-white">
+		<a href="#solutions" class="cta group pointer-events-auto px-4 text-white">
 			{page.data['cta-solutions']}
 			<iconify-icon
 				class="text-xl transition-transform group-hover:translate-y-1"
