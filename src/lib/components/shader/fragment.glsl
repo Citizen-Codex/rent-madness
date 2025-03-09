@@ -12,13 +12,13 @@ float rand(vec2 n) {
 float posSin(float x) { return (sin(x) + 1.0) / 2.0; }
 
 void main() {
-    float bandFrequency = 60.0;
+    float bandFrequency = 0.08 * uHeight;
     float yFromCenter = abs(vUv.y - 0.5) * 2.0;
-    vec2 avUv = vec2(((vUv.x - 0.5) * 0.9* uWidth / uHeight) + 0.5, vUv.y);
+    vec2 avUv = vec2(((vUv.x - 0.5) * 0.9 * uWidth / uHeight) + 0.5, vUv.y);
     float distFromCenter = length(avUv - vec2(0.5));
     float radialBand = posSin(distFromCenter * bandFrequency - uTime * 2.0);
  
-    float baseOpacity = pow(radialBand * pow(yFromCenter, 0.03), mix(50., 1., yFromCenter ));
+    float baseOpacity = pow(radialBand * pow(yFromCenter, 0.02), mix(20., 1., yFromCenter));
     float opacity = max(0.15, rand(vUv + uTime) * baseOpacity);
     gl_FragColor = vec4(vec3(.4), opacity);
 }

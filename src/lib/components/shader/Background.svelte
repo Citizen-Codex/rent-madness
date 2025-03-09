@@ -23,7 +23,7 @@
 
 <div
 	role="application"
-	class={['absolute inset-0 bg-gradient-to-b from-black/95 to-black', classes]}
+	class={['from-black-true/95 to-black-true absolute inset-0 bg-gradient-to-b', classes]}
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 >

@@ -2,15 +2,26 @@
   --font-serif: 'NotoSerif', 'serif';
   --font-mono: 'RobotoMono', 'monospace';
 
+  --color-black: #1B1A1A;
+  --color-white: #FFF9F2;
+  --color-white-true: #FFFFFF;
+  --color-black-true: #000000;
+
+  --color-blue: #34AFF7;
+  --color-cerulean: #4A8A9A;
   --color-yellow: #DCBE6E;
-  --color-pink: #EE95E6;
-  --color-black-offset: #292929;
-  --color-white-offset: #FFF9F2;
-  --color-white: #FFFFFF;
-  --color-black: #000000;
-  --color-red: #D65E39;
-  --color-blue: #4A8A9A;
   --color-green: #28644E;
+  --color-orange: #D65E39;
+  --color-pink: #EE95E6;
+  --color-gray: #5A5B5E;
+
+  --color-blue-light: #B1E2FF;
+  --color-cerulean-light: #7AC7D5;
+  --color-yellow-light: #FFF5DA;
+  --color-green-light: #7FC9AE;
+  --color-orange-light: #FF8D69;
+  --color-pink-light: #FDB7F6;
+  --color-gray-light: #F5F5F2;
 }
 
 
@@ -19,7 +30,7 @@
 }
 
 @utility subheading {
-  @apply font-serif text-2xl text-black-offset leading-7;
+  @apply font-serif text-2xl text-black leading-7;
 }
 
 @utility body {

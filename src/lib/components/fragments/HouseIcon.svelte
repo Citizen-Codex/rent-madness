@@ -1,20 +1,20 @@
 <script module lang="ts">
 	const colors = {
-		red: {
-			outline: '#FF8D69',
-			fill: '#D65E39'
+		orange: {
+			outline: 'var(--color-orange-light)',
+			fill: 'var(--color-orange)'
 		},
 		blue: {
-			outline: '#FFFFFF',
-			fill: '#4A8A9A'
+			outline: 'var(--color-white)',
+			fill: 'var(--color-blue)'
 		},
 		green: {
-			outline: '#FFFFFF',
-			fill: '#28644E'
+			outline: 'var(--color-white)',
+			fill: 'var(--color-green)'
 		},
 		yellow: {
-			outline: '#FFFFFF',
-			fill: '#DCBE6E'
+			outline: 'var(--color-white)',
+			fill: 'var(--color-yellow)'
 		}
 	};
 </script>
@@ -22,7 +22,7 @@
 <script lang="ts">
 	interface Props {
 		class?: string;
-		color: 'red' | 'blue' | 'green' | 'yellow';
+		color: keyof typeof colors;
 		mirror?: boolean;
 		spin?: boolean;
 	}
