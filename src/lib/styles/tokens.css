@@ -29,6 +29,10 @@
   @apply font-serif text-5xl font-semibold text-black leading-none;
 }
 
+@utility heading-small {
+  @apply font-serif text-4xl font-semibold text-black leading-none;
+}
+
 @utility subheading {
   @apply font-serif text-2xl text-black leading-7;
 }
@@ -39,6 +43,10 @@
 
 @utility cta {
   @apply font-mono font-medium text-xl leading-none uppercase;
+}
+
+@utility cta-small {
+  @apply font-mono font-medium text-sm leading-none uppercase;
 }
 
 @utility content-well-small {

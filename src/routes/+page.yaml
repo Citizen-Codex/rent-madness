@@ -66,6 +66,23 @@ chapter-2:
       view:
         zoom: 8.69
         center: [-113.945, 46.886]
+  explorer:
+    hed: Explore Rental Data Disparities
+    content: These disparities can be unexpected and vary drastically based on geographic, economic, and social factors. Explore your city and zip code to see what average rents and data availability look like.
+    cta: Search your city 
+    cities:
+      - name: New York
+        view:
+          bbox: [-74.259633, 40.477399, -73.700292, 40.917577]
+      - name: Boston 
+        view:
+          bbox: [-71.125214, 42.326256, -71.017611, 42.370954]
+      - name: Chicago
+        view:
+          bbox: [-87.869226, 41.632652, -87.496959, 42.034895]
+      - name: Los Angeles
+        view:
+          bbox: [-118.52144, 33.899991, -118.126728, 34.161439]
 
 
 chapter-3:

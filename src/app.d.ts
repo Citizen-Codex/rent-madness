@@ -9,6 +9,11 @@ declare global {
     // interface Platform {}
   }
 
+  type MapView = {
+    zoom: number;
+    center: [number, number];
+  } | { bbox: [number, number, number, number] };
+
   declare module '*.yaml' {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const value: Record<string, any>;
