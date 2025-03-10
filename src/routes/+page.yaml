@@ -37,12 +37,12 @@ chapter-2:
   dek: There are many sources of rental data but only a few are publicly available and cover many parts of the country. We focus on Zillow ZORI data and ACS to build the start of a Rent Transparency Index.
   cta: Scroll 
   steps:
-    - content: Using these two data sources, we analyze discrepancies in rent prices between them, and categorize zip codes into [six categories]{.bg-yellow/60} ranging from “no data available” to “the different data sources are within a reasonable range of each other.”
-    - content: When zooming into **Phoenix**, notice the <span class='bg-red/60'>dark red zip codes</span> in a few regions of the city. These are places where the rental prices can differ by almost **a factor of two** from one data source to another.
+    - content: Using these two data sources, we analyze discrepancies in rent prices between them, and categorize zip codes into **[six categories]{.bg-white}** ranging from “no data available” to “the different data sources are within a reasonable range of each other.”
+    - content: When zooming into **Phoenix**, notice the [dark yellow]{.bg-map-2/70} zip codes</span> in a few regions of the city. These are places where the rental prices can differ by almost **a factor of two** from one data source to another.
       view:
         zoom: 9.15
         center: [-112.022, 33.517]
-    - content: Next, we go to **San Francisco**—a city that regularly ranks as one of the most expensive in the country for renters. Looking to the southwest, the Bayview neighborhood has the largest rent discrepancy in the city and is also one of the most disadvantaged. Sometimes referred to as the “Last Black neighborhood of San Francisco,” it’s an ongoing site of struggles over gentrification and displacement.
+    - content: Next, we go to **San Francisco**—a city that regularly ranks as one of the most expensive in the country for renters. Looking to the southwest, the Bayview neighborhood, colored in [deep brown]{.bg-map-4/70 .text-white}, has the largest rent discrepancy in the city and is also one of the most disadvantaged. Sometimes referred to as the “Last Black neighborhood of San Francisco,” it’s an ongoing site of struggles over gentrification and displacement.
       view:
         zoom: 9.15
         center: [-122.253, 37.732]

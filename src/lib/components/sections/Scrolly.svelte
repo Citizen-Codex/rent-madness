@@ -45,7 +45,7 @@
 
 <Scroller top={0} threshold={0.7} bottom={1} query=".step" bind:index>
 	{#snippet background()}
-		<Basemap {view} {mapInteractive} bind:setView />
+		<Basemap {view} {mapInteractive} bind:setView {index} />
 	{/snippet}
 
 	{#snippet foreground()}

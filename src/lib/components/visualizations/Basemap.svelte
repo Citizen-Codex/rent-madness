@@ -13,8 +13,9 @@
 
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import MapLegend from './MapLegend.svelte';
 
-	let { view, setView = $bindable(), mapInteractive } = $props();
+	let { view, setView = $bindable(), mapInteractive, index } = $props();
 
 	let map: Map | null = $state(null);
 	let mapContainer: HTMLElement | null = $state(null);
@@ -90,6 +91,7 @@
 >
 	<div class="absolute inset-0">
 		<div class="h-full w-full" bind:this={mapContainer}></div>
+		<MapLegend />
 	</div>
 	{#if !loaded.value}
 		<div class="absolute inset-0 flex items-center justify-center">
