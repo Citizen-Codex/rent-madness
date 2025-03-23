@@ -1,6 +1,6 @@
 @theme {
-  --font-serif: 'NotoSerif', 'serif';
-  --font-mono: 'RobotoMono', 'monospace';
+  --font-serif: 'Noto Serif', 'serif';
+  --font-mono: 'Roboto Mono', 'monospace';
 
   --color-black: #1B1A1A;
   --color-white: #FFF9F2;
@@ -33,15 +33,15 @@
 
 
 @utility heading {
-  @apply font-serif text-5xl font-semibold text-black leading-none;
+  @apply font-serif text-5xl font-semibold leading-none;
 }
 
 @utility heading-small {
-  @apply font-serif text-4xl font-semibold text-black leading-none;
+  @apply font-serif text-4xl font-semibold leading-none;
 }
 
 @utility subheading {
-  @apply font-serif text-2xl text-black leading-7;
+  @apply font-serif text-2xl leading-7;
 }
 
 @utility body {
@@ -54,6 +54,10 @@
 
 @utility cta-small {
   @apply font-mono font-medium text-sm leading-none uppercase;
+}
+
+@utility label {
+  @apply font-mono text-sm leading-tight;
 }
 
 @utility content-well-small {

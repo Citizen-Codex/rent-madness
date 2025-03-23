@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import md from '$lib/utils/md';
 	import Section from '$lib/components/fragments/Section.svelte';
+	import Houses from '$lib/components/visualizations/Houses.svelte';
 
 	let content = page.data.intro;
 </script>
@@ -15,7 +16,7 @@
 		{@html md(content['content-before'])}
 	</p>
 
-	<div>PLACEHOLDER FOR GRAPHIC</div>
+	<Houses />
 
 	<div class="body content-well-small">
 		{@html md(content['content-after'])}

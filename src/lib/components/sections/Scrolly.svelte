@@ -49,7 +49,7 @@
 	{/snippet}
 
 	{#snippet foreground()}
-		<div class="relative flex flex-col items-center px-4 md:px-8">
+		<div class="flex flex-col items-center px-4 md:px-8">
 			<!-- Intro -->
 			<div
 				class="step mt-16 mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border bg-white px-6 py-8"
@@ -66,13 +66,13 @@
 			<!-- Steps -->
 			{#each content.steps as step, i (i)}
 				<div class="body step bg-white-true mb-[90vh] max-w-md rounded border border-black p-6">
-					<p class="highlighted">{@html md(step.content)}</p>
+					{@html md(step.content)}
 				</div>
 			{/each}
 
 			<!-- Explorer -->
 			<div
-				class="step mr-auto mb-[calc(100vh-174px)] flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+				class="step mb sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
 			>
 				<h3 class="heading-small">{content.explorer.hed}</h3>
 				<p class="body">{content.explorer.content}</p>
@@ -95,6 +95,8 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="h-[calc(100vh-174px)]"></div>
 		</div>
 	{/snippet}
 </Scroller>
@@ -109,10 +111,6 @@
 	:global(svelte-scroller-background),
 	.step {
 		@apply pointer-events-auto;
-	}
-
-	p.highlighted :global(span) {
-		@apply -mx-0.5 rounded px-0.5;
 	}
 
 	.geocoder {

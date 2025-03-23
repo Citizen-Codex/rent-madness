@@ -91,7 +91,9 @@
 >
 	<div class="absolute inset-0">
 		<div class="h-full w-full" bind:this={mapContainer}></div>
-		<MapLegend />
+		{#if index && index > 0}
+			<MapLegend />
+		{/if}
 	</div>
 	{#if !loaded.value}
 		<div class="absolute inset-0 flex items-center justify-center">

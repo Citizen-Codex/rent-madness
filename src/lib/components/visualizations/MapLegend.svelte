@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide, fly } from 'svelte/transition';
+
 	const legend = [
 		{
 			color: 'bg-map-1/70',
@@ -31,19 +33,31 @@
 			detail: 'Neither data source is available.'
 		}
 	];
+
+	let collapsed = $state(true);
 </script>
 
 <div
-	class="bg-white-true absolute top-16 right-8 flex flex-col border border-black font-mono leading-none tracking-tight uppercase"
+	class="bg-white-true absolute top-8 right-8 flex w-[280px] flex-col border border-black font-mono text-sm leading-none tracking-tight uppercase"
+	transition:fly={{ y: 15 }}
 >
-	<p class="border-b border-black px-4 py-3 font-medium tracking-normal">
+	<button
+		onclick={() => (collapsed = !collapsed)}
+		class="pointer-events-auto flex items-center justify-between border-b border-black px-4 py-3 font-medium tracking-normal uppercase"
+	>
 		Similarity of price data
-	</p>
-	<ul class="flex flex-col">
+		<iconify-icon
+			icon="mdi:chevron-down"
+			class={['text-xl text-black transition-transform', !collapsed && 'rotate-180']}
+		></iconify-icon>
+	</button>
+	<ul class={['flex flex-col']}>
 		{#each legend as { color, label, detail } (label)}
-			<li class={['max-w-xs px-4 py-3', color]}>
+			<li class={['px-4 transition-all', color, collapsed ? 'py-2' : 'py-3']}>
 				{label}
-				<p class="mt-2 text-sm leading-none normal-case">{detail}</p>
+				{#if !collapsed}
+					<p transition:slide class="mt-2 text-xs leading-none normal-case">{detail}</p>
+				{/if}
 			</li>
 		{/each}
 	</ul>

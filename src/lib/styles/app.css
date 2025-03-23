@@ -20,5 +20,9 @@
     a {
       @apply font-medium underline;
     }
+
+    span.highlighted {
+      @apply -mx-0.5 rounded px-0.5;
+    }
   }
 }
