@@ -6,7 +6,8 @@
 		bordered = false,
 		borderTop = bordered,
 		borderBottom = bordered,
-		class: classes = ''
+		class: classes = '',
+		...rest
 	} = $props();
 </script>
 
@@ -19,6 +20,7 @@
 		borderBottom && 'border-b',
 		classes
 	]}
+	{...rest}
 >
 	{@render children?.()}
 </section>

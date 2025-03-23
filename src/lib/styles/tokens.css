@@ -73,5 +73,5 @@
 }
 
 @utility content-well-large {
-  @apply w-full px-4 md:px-8;
+  @apply w-full max-w-7xl px-4 md:px-8 mx-auto;
 }

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Section from '$lib/components/fragments/Section.svelte';
 	import ChapterNumber from '$lib/components/fragments/ChapterNumber.svelte';
+	import IconCircle from '$lib/components/fragments/IconCircle.svelte';
 	import md from '$lib/utils/md';
 	import { slide } from 'svelte/transition';
 
@@ -15,15 +16,15 @@
 	let open = $state(allClosed);
 </script>
 
-<Section borderTop background={false}>
+<Section borderTop background={false} id="solutions">
 	<div class="content-well-large flex flex-col gap-10">
 		<ChapterNumber>6</ChapterNumber>
-		<div class="flex gap-8">
+		<div class="flex gap-16">
 			<div class="flex max-w-md basis-1/3 flex-col gap-10">
 				<h2 class="heading">{content.hed}</h2>
 				{@html md(content.content)}
 			</div>
-			<div class="content-well-large flex basis-2/3 flex-col gap-6">
+			<div class="flex basis-2/3 flex-col gap-6">
 				{#each content.solutions as { summary, detail }, i (i)}
 					<div>
 						<button
@@ -43,14 +44,15 @@
 						>
 							<span class="heading font-medium">{i + 1}</span>
 							<p class="subheading text-left">{summary}</p>
-							<iconify-icon
+							<IconCircle
 								icon="mdi:chevron-down"
-								style={!open[i] && `background-color: var(--color-${colors[i]});`}
 								class={[
 									'ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-2xl transition-all',
 									open[i] ? 'bg-white-true rotate-180 text-black' : 'text-white'
 								]}
-							></iconify-icon>
+								style={!open[i] && `background-color: var(--color-${colors[i]});`}
+								size="md"
+							/>
 						</button>
 						{#if open[i]}
 							<div transition:slide class="-mt-1 border border-black p-6">

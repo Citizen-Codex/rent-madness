@@ -34,7 +34,7 @@
 		{/each}
 		<h1 class="py-8 text-8xl font-semibold text-white">{page.data.hed}</h1>
 		<p class="subheading border-y border-white p-6 font-medium text-white">{page.data.dek}</p>
-		<a href="#explorer" class="cta group pointer-events-auto flex items-center gap-4 bg-white p-4">
+		<a href="#explore" class="cta group pointer-events-auto flex items-center gap-4 bg-white p-4">
 			{page.data['cta-explore']}
 			<iconify-icon
 				class="text-xl transition-transform group-hover:translate-x-1"

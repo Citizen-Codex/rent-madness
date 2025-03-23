@@ -43,63 +43,65 @@
 	});
 </script>
 
-<Scroller top={0} threshold={0.7} bottom={1} query=".step" bind:index>
-	{#snippet background()}
-		<Basemap {view} {mapInteractive} bind:setView {index} />
-	{/snippet}
+<section id="explore">
+	<Scroller top={0} threshold={0.7} bottom={1} query=".step" bind:index>
+		{#snippet background()}
+			<Basemap {view} {mapInteractive} bind:setView {index} />
+		{/snippet}
 
-	{#snippet foreground()}
-		<div class="flex flex-col items-center px-4 md:px-8">
-			<!-- Intro -->
-			<div
-				class="step mt-16 mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border bg-white px-6 py-8"
-			>
-				<ChapterNumber>2</ChapterNumber>
-				<h2 class="heading">{content.hed}</h2>
-				<p class="body">{content.dek}</p>
-				<div class="cta flex items-center gap-4">
-					{content.cta}
-					<IconCircle icon="mdi:chevron-down" class="bg-orange text-2xl text-white" />
-				</div>
-			</div>
-
-			<!-- Steps -->
-			{#each content.steps as step, i (i)}
-				<div class="body step bg-white-true mb-[90vh] max-w-md rounded border border-black p-6">
-					{@html md(step.content)}
-				</div>
-			{/each}
-
-			<!-- Explorer -->
-			<div
-				class="step mb sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
-			>
-				<h3 class="heading-small">{content.explorer.hed}</h3>
-				<p class="body">{content.explorer.content}</p>
-				<div class="flex flex-col gap-4 border-t-2 border-black pt-4">
-					<p class="cta flex items-center gap-4">
-						{content.explorer.cta}
-					</p>
-					<div class="geocoder"></div>
-					<div class="flex flex-wrap gap-2">
-						{#each content.explorer.cities as { name, view: cityView } (name)}
-							<button
-								onclick={() => (setView = cityView)}
-								class={[
-									'cta-small hover:bg-orange-light outline-orange cursor-pointer border border-black p-2 transition-colors focus:outline',
-									JSON.stringify(cityView) === JSON.stringify(setView) &&
-										'bg-orange pointer-events-none text-white'
-								]}>{name}</button
-							>
-						{/each}
+		{#snippet foreground()}
+			<div class="flex flex-col items-center px-4 md:px-8">
+				<!-- Intro -->
+				<div
+					class="step mt-16 mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+				>
+					<ChapterNumber>2</ChapterNumber>
+					<h2 class="heading">{content.hed}</h2>
+					<p class="body">{content.dek}</p>
+					<div class="cta flex items-center gap-4">
+						{content.cta}
+						<IconCircle icon="mdi:chevron-down" class="bg-orange text-2xl text-white" />
 					</div>
 				</div>
-			</div>
 
-			<div class="h-[calc(100vh-174px)]"></div>
-		</div>
-	{/snippet}
-</Scroller>
+				<!-- Steps -->
+				{#each content.steps as step, i (i)}
+					<div class="body step bg-white-true mb-[90vh] max-w-md rounded border border-black p-6">
+						{@html md(step.content)}
+					</div>
+				{/each}
+
+				<!-- Explorer -->
+				<div
+					class="step mb sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+				>
+					<h3 class="heading-small">{content.explorer.hed}</h3>
+					<p class="body">{content.explorer.content}</p>
+					<div class="flex flex-col gap-4 border-t-2 border-black pt-4">
+						<p class="cta flex items-center gap-4">
+							{content.explorer.cta}
+						</p>
+						<div class="geocoder"></div>
+						<div class="flex flex-wrap gap-2">
+							{#each content.explorer.cities as { name, view: cityView } (name)}
+								<button
+									onclick={() => (setView = cityView)}
+									class={[
+										'cta-small hover:bg-orange-light outline-orange cursor-pointer border border-black p-2 transition-colors focus:outline',
+										JSON.stringify(cityView) === JSON.stringify(setView) &&
+											'bg-orange pointer-events-none text-white'
+									]}>{name}</button
+								>
+							{/each}
+						</div>
+					</div>
+				</div>
+
+				<div class="h-[calc(100vh-174px)]"></div>
+			</div>
+		{/snippet}
+	</Scroller>
+</section>
 
 <style lang="postcss">
 	@reference '$lib/styles/app.css';

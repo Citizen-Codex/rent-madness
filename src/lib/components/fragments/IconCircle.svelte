@@ -1,13 +1,21 @@
 <script lang="ts">
 	interface Props {
 		icon: string;
-		iconClass?: string;
-		class?: string;
+		class?: string | string[];
+		size?: 'sm' | 'md' | 'lg';
 	}
 
-	const { icon, iconClass, class: classes }: Props = $props();
+	const { icon, class: classes, size = 'lg', ...rest }: Props = $props();
 </script>
 
-<div class={['flex h-12 w-12 items-center justify-center rounded-full', classes]}>
-	<iconify-icon {icon} class={[iconClass]}></iconify-icon>
-</div>
+<iconify-icon
+	{icon}
+	class={[
+		'flex items-center justify-center rounded-full',
+		classes,
+		{ 'h-12 w-12': size === 'lg' },
+		{ 'h-10 w-10': size === 'md' },
+		{ 'h-8 w-8': size === 'sm' }
+	]}
+	{...rest}
+></iconify-icon>
