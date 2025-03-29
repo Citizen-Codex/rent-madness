@@ -6,6 +6,7 @@
   --color-white: #FFF9F2;
   --color-white-true: #FFFFFF;
   --color-black-true: #000000;
+  --color-gray-medium: #B4B4B4;
 
   --color-blue: #34AFF7;
   --color-cerulean: #4A8A9A;
@@ -61,7 +62,7 @@
 }
 
 @utility content-well-small {
-  @apply max-w-md w-full mx-auto px-4;
+  @apply w-full mx-auto px-4 max-w-[75ch];
 }
 
 @utility content-well-medium {
