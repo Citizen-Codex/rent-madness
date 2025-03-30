@@ -15,7 +15,7 @@
 	});
 </script>
 
-<Section>
+<Section id="implications">
 	<div class="content-well-small flex flex-col gap-10">
 		<ChapterNumber>3</ChapterNumber>
 		<h2 class="heading">{content.hed}</h2>

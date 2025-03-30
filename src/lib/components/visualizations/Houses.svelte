@@ -29,15 +29,15 @@
 	let index: number | undefined = $state();
 </script>
 
-<Scroller top={0.2} threshold={0.5} bottom={0.8} query=".step" bind:index>
+<Scroller top={0.2} threshold={0.5} bottom={0.9} query=".step" bind:index>
 	{#snippet background()}
-		<div class="flex h-[60vh] flex-col items-center justify-center">
+		<div class="flex h-[70vh] flex-col items-center justify-center">
 			<div class="content-well-medium absolute">
-				<Picture {...steps[0]} alt="" />
+				<Picture {...steps[0]} alt="" class="mx-auto  max-h-[calc(70vh-200px)] w-fit" />
 				{#each steps as { src, alt, annotation, annotationClasses }, i (i)}
 					{#if i <= (index ?? 0) && i !== 0}
 						<div transition:fade class="absolute inset-x-4 inset-y-0 md:inset-x-8">
-							<Picture {src} {alt} />
+							<Picture {src} {alt} class="mx-auto max-h-[calc(70vh-200px)] w-fit" />
 						</div>
 
 						<div

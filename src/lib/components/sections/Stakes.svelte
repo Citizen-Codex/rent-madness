@@ -9,7 +9,7 @@
 	const content = page.data['chapter-1'];
 </script>
 
-<Section borderTop>
+<Section borderTop id="stakes">
 	<div class="content-well-medium flex flex-col items-center gap-10">
 		<ChapterNumber>1</ChapterNumber>
 		<h2 class="heading max-w-md text-center">{content.hed}</h2>

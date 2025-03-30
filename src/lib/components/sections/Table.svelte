@@ -25,7 +25,7 @@
 	let open = $state(allClosed);
 </script>
 
-<Section borderTop background={false}>
+<Section borderTop background={false} id="types">
 	<div class="content-well-large flex max-w-2xl flex-col gap-10">
 		<ChapterNumber>4</ChapterNumber>
 		<h2 class="heading">{content.hed}</h2>

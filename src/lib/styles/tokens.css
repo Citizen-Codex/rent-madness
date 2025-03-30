@@ -62,7 +62,7 @@
 }
 
 @utility content-well-small {
-  @apply w-full mx-auto px-4 max-w-[75ch];
+  @apply w-full mx-auto px-4 max-w-[632px];
 }
 
 @utility content-well-medium {

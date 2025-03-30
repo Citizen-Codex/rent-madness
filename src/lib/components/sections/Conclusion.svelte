@@ -11,7 +11,7 @@
 	const colors = ['green', 'blue', 'yellow', 'orange'];
 </script>
 
-<Section borderTop padding={false}>
+<Section borderTop padding={false} id="conclusion">
 	<div class="flex">
 		<div
 			class="bg-gray-light relative flex min-h-[60vh] basis-1/2 items-center justify-center overflow-hidden"

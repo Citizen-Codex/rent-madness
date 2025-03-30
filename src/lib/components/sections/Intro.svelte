@@ -7,7 +7,7 @@
 	let content = page.data.intro;
 </script>
 
-<Section>
+<Section id="introduction">
 	<p class="content-well-small font-mono tracking-wide uppercase">
 		{@html md(content.byline)}
 	</p>

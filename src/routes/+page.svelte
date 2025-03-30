@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Menu from '$lib/components/interactivity/Menu.svelte';
 	import Hero from '$lib/components/sections/Hero.svelte';
 	import Intro from '$lib/components/sections/Intro.svelte';
 	import Stakes from '$lib/components/sections/Stakes.svelte';
@@ -14,6 +15,7 @@
 	$inspect(data);
 </script>
 
+<Menu />
 <Hero />
 <Intro />
 <Stakes />
