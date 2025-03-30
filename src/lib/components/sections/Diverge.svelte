@@ -1,8 +1,9 @@
 <script lang="ts">
 	import Section from '$lib/components/fragments/Section.svelte';
 	import ChapterNumber from '$lib/components/fragments/ChapterNumber.svelte';
+	import ChartTooltip from '$lib/components/interactivity/ChartTooltip.svelte';
 	import md from '$lib/utils/md';
-	import { scaleLinear, max, ticks } from 'd3';
+	import { scaleLinear, max, format } from 'd3';
 
 	import { page } from '$app/state';
 
@@ -63,11 +64,22 @@
 	const xScale = scaleLinear()
 		.domain([0, maxX * 1.1])
 		.range([0, 100]);
+
+	let hovered = $state<{ id: string; data: (typeof data)[number] }>();
+
+	const formatNumber = format('$,.0f');
 </script>
 
-{#snippet dot(color: string, left: number)}
+{#snippet dot(index: number, color: string, left: number)}
+	{@const id = `dot-${data[index].name}-${color}`}
 	<div
-		class={['absolute h-3 w-3 -translate-x-1/2 rounded-full', color]}
+		{id}
+		class={[
+			'absolute h-3 w-3 -translate-x-1/2 cursor-crosshair rounded-full border border-white transition-all hover:scale-110 hover:border-black',
+			color
+		]}
+		onpointerenter={() => (hovered = { id, data: data[index] })}
+		onpointerleave={() => (hovered = undefined)}
 		style:left={`${left}%`}
 	></div>
 {/snippet}
@@ -85,7 +97,10 @@
 	<div class="content-well-medium flex flex-col gap-8">
 		<div class="flex flex-col gap-3">
 			<p class="heading-small">Rent Disparities in Phoenix</p>
-			<p class="subheading">Disparities in rent prices across neighborhoods in Phoenix</p>
+			<p class="subheading">
+				Looking at the actual rent measures across zip codes, the disparities in prices jump out for
+				particular neighborhoods.
+			</p>
 		</div>
 
 		<div class="flex flex-wrap gap-x-4 gap-y-2">
@@ -114,7 +129,7 @@
 						class="bg-gray-medium absolute inset-y-0 w-[0.5px]"
 					></div>
 				{/each}
-				{#each data as { name, acs, zori } (name)}
+				{#each data as { name, acs, zori }, i (name)}
 					<div class="relative flex h-6 items-center gap-2">
 						<div class="bg-gray-medium absolute inset-x-0 h-[0.5px]"></div>
 						{#if acs && zori}
@@ -125,17 +140,17 @@
 							></div>
 						{/if}
 						{#if acs}
-							{@render dot('bg-yellow', xScale(acs))}
+							{@render dot(i, 'bg-yellow', xScale(acs))}
 						{/if}
 						{#if zori}
-							{@render dot('bg-orange', xScale(zori))}
+							{@render dot(i, 'bg-orange', xScale(zori))}
 						{/if}
 					</div>
 				{/each}
 				<div class="label sticky bottom-0 -ml-0.5 flex h-6 w-full items-end bg-white">
 					{#each xScale.ticks(5) as tick (tick)}
 						<div style:left={`${xScale(tick)}%`} class="absolute ml-0.5 -translate-x-1/2">
-							{tick}
+							{formatNumber(tick)}
 						</div>
 					{/each}
 				</div>
@@ -147,3 +162,29 @@
 		{@html md(content['content-after'])}
 	</div>
 </Section>
+
+{#if hovered}
+	<ChartTooltip targetId={hovered?.id}>
+		<div class="markdown">
+			<p>
+				<strong>{hovered.data.name}</strong> has {#if hovered.data.zori}a mean Zillow Observed Rent
+					Index value of
+					<span class="bg-orange-light/40 highlighted font-mono"
+						>{formatNumber(hovered.data.zori)}</span
+					>
+					and
+				{/if} median rent of
+				<span class="bg-yellow-light highlighted font-mono">{formatNumber(hovered.data.acs)}</span>
+				measured by the American Community Survey.
+			</p>
+			{#if hovered.data.acs && hovered.data.zori}
+				<p>
+					The disparity between the two measures is
+					<span class="bg-gray-light highlighted font-mono font-bold"
+						>{format('.0%')((hovered.data.zori - hovered.data.acs) / hovered.data.acs)}</span
+					>.
+				</p>
+			{/if}
+		</div>
+	</ChartTooltip>
+{/if}
