@@ -3,7 +3,8 @@
 	import ChapterNumber from '$lib/components/fragments/ChapterNumber.svelte';
 	import ChartTooltip from '$lib/components/interactivity/ChartTooltip.svelte';
 	import md from '$lib/utils/md';
-	import { scaleLinear, max, format } from 'd3';
+	import { scaleLinear, max } from 'd3';
+	import { formatNumber, formatPercent } from '$lib/utils/format';
 
 	import { page } from '$app/state';
 
@@ -66,8 +67,6 @@
 		.range([0, 100]);
 
 	let hovered = $state<{ id: string; data: (typeof data)[number] }>();
-
-	const formatNumber = format('$,.0f');
 </script>
 
 {#snippet dot(index: number, color: string, left: number)}
@@ -173,7 +172,7 @@
 						>{formatNumber(hovered.data.zori)}</span
 					>
 					and
-				{/if} median rent of
+				{/if} a median rent of
 				<span class="bg-yellow-light highlighted font-mono">{formatNumber(hovered.data.acs)}</span>
 				measured by the American Community Survey.
 			</p>
@@ -181,7 +180,7 @@
 				<p>
 					The disparity between the two measures is
 					<span class="bg-gray-light highlighted font-mono font-bold"
-						>{format('.0%')((hovered.data.zori - hovered.data.acs) / hovered.data.acs)}</span
+						>{formatPercent((hovered.data.zori - hovered.data.acs) / hovered.data.acs)}</span
 					>.
 				</p>
 			{/if}
