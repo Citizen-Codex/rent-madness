@@ -24,7 +24,7 @@
 		</p>
 	</div>
 
-	<div class="content-well-small">
+	<div class="content-well-small body">
 		{@html md(content['content-before'])}
 	</div>
 
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 
-	<div class="content-well-small">
+	<div class="content-well-small body">
 		{@html md(content['content-after'])}
 	</div>
 </Section>

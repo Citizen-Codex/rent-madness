@@ -14,15 +14,18 @@
 	const allClosed = Array.from({ length: content.solutions.length }).fill(false);
 
 	let open = $state(allClosed);
+	open[0] = true;
 </script>
 
-<Section borderTop background={false} id="solutions">
+<Section borderTop background={false} id="solutions" class="justify-center">
 	<div class="content-well-large flex flex-col gap-10">
 		<ChapterNumber>6</ChapterNumber>
 		<div class="flex gap-16">
 			<div class="flex max-w-md basis-1/3 flex-col gap-10">
 				<h2 class="heading">{content.hed}</h2>
-				{@html md(content.content)}
+				<div class="body">
+					{@html md(content.content)}
+				</div>
 			</div>
 			<div class="flex basis-2/3 flex-col gap-6">
 				{#each content.solutions as { summary, detail }, i (i)}
@@ -55,7 +58,7 @@
 							/>
 						</button>
 						{#if open[i]}
-							<div transition:slide class="-mt-1 border border-black p-6">
+							<div transition:slide class="body -mt-1 border border-black p-6">
 								{@html md(detail)}
 							</div>
 						{/if}

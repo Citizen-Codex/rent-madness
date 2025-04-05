@@ -8,13 +8,13 @@
 </script>
 
 <Section id="introduction">
-	<p class="content-well-small font-mono tracking-wide uppercase">
+	<div class="content-well-small font-mono tracking-wide uppercase">
 		{@html md(content.byline)}
-	</p>
+	</div>
 
-	<p class="body content-well-small">
+	<div class="body content-well-small">
 		{@html md(content['content-before'])}
-	</p>
+	</div>
 
 	<Houses />
 

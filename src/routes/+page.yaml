@@ -5,14 +5,14 @@ cta-solutions: Jump to solutions
 
 intro:
   byline: >
-    By [Timi O.](/) and [Arjun K.](/)
+    By [Timi K.](/) and [Arjun K.](/)
 
     Editing by [Biniam G.](/)
 
     Design by [Chloe P.](/) and [MaSara M.](/)
   content-before: Think back to your last move. It probably evokes memories of anxiety, dread, and sweat. Summer is the season most of America’s 44.5 million renter households move. Last year roughly 17 percent of renters changed addresses. While finding new housing is stressful for all renters, housing searches can be particularly grueling for low-income families.
   content-after: >
-    The post-pandemic rise and fall in inflation has brought sharper attention to prices in a variety of economic sectors—including grocery, transportation, and child care—and apartment rents are no exception.
+    The post-pandemic rise and fall in inflation has brought sharper attention to prices in a variety of economic sectors—including grocery, [transportation](https://www.consumerreports.org/cars/buying-a-car/when-to-buy-a-used-car-a6584238157/){target="_blank"}, and child care—and apartment rents are no exception.
 
 
     Despite making up a significant portion of Americans' expenses, comprehensive and accurate data on rent prices is surprisingly scarce. In the U.S., rental data is calculated in a complicated and disjointed manner. There are multiple governmental and private-sector rental datasets that substantially diverge, often with differing methodologies.  
@@ -24,7 +24,7 @@ chapter-1:
   hed: The Real Stakes of Bad Rental Data
   dek: One vivid example of these dynamics is the story of JoAnn Ellis, a soon-to-be grandmother living in the booming Phoenix metro area in 2021. 
   content: >
-    As reported by the Arizona Republic, JoAnn struggled throughout her life with housing insecurity, but that year she finally got off a lengthy waitlist and received some  government help.
+    As [reported](https://www.azcentral.com/in-depth/money/real-estate/2022/08/15/why-its-so-hard-use-housing-choice-voucher-phoenix-area/10092282002/){target="_blank"} by the Arizona Republic, JoAnn struggled throughout her life with housing insecurity, but in 2021 she finally got off a lengthy waitlist and received some  government help.
 
 
     Relief came in the form of the federal Housing Choice Voucher program, which assists low-income renters in finding housing on the private rental market. It pays the difference between what they can afford (set at 30 percent of their income) and the full rent of a moderately priced rental unit. 
@@ -33,7 +33,7 @@ chapter-1:
     However, relief soon turned into despair. JoAnn spent five months searching for an apartment, but she could not find a unit in her budget and with a landlord accepting vouchers. Housing vouchers operate under a use-it-or-lose principle and voucher holders are given a limited time for their searches. After JoAnn’s voucher expired, she was forced to move into a crowded rental with her pregnant daughter’s family.  
 
 
-    Crucial context for JoAnn’s story is the rapid rent increases in Phoenix at the time. Market rents in the Phoenix area are reported to have risen nearly 30 percent between 2021 and 2022, faster than the rental payment standards of the federal government.
+    Crucial context for JoAnn’s story is the rapid rent increases in Phoenix at the time. Market rents in the Phoenix area are [reported](https://eu.azcentral.com/in-depth/money/real-estate/2022/08/15/why-its-so-hard-use-housing-choice-voucher-phoenix-area/10092282002/){target="_blank"} to have risen nearly 30 percent between 2021 and 2022, faster than the rental payment standards of the federal government.
 
 
     Rental statistics are not just background details. How rental data are measured, aggregated, and reported directly influence the housing outcomes of renters like JoAnn. If the statistics data the government uses to set rental assistance amounts do not match the reality on the ground, people can go unhoused.
@@ -55,14 +55,6 @@ chapter-2:
       view:
         zoom: 9.15
         center: [-122.253, 37.732]
-    - content: Not all cities appear to have rents that substantially diverge depending on the data source. For example, the zip codes in Seattle, WA, have a relatively low rent-price discrepancy.
-      view:
-        zoom: 10.62
-        center: [-122.307, 47.601]
-    - content: In King County, where Seattle is located, the median rent discrepancy of zip codes with available data is only 4.5 percent. This discrepancy is the lowest in comparison to the 25 largest counties in the U.S. by population, which have a median discrepancy of 18.6 percent.
-      view:
-        zoom: 8.23
-        center: [-122.255, 47.588]
     - content: In some parts of the country, one can see a clear spatial distribution of rent discrepancies, such as the Atlanta metro area. Rent discrepancies are apparent in central city areas as well as in a ring of zip codes that surround the outlying areas
       view:
         zoom: 8.33
@@ -71,10 +63,6 @@ chapter-2:
       view:
         zoom: 6.11
         center: [-109.111, 47.024]
-    - content: Missoula, the largest city of 75 thousand, barely registers. Rural areas also tend to have far fewer apartment buildings than single-family homes. They often also rent mobile homes. Lastly, higher rates of informal renting of spare rooms may also lead to fewer units listed on rental platforms like Zillow.
-      view:
-        zoom: 8.69
-        center: [-113.945, 46.886]
   explorer:
     hed: Explore Rental Data Disparities
     content: These disparities can be unexpected and vary drastically based on geographic, economic, and social factors. Explore your city and zip code to see what average rents and data availability look like.
@@ -101,7 +89,7 @@ chapter-3:
     HUD’s Fair Market Rent (FMR) standards determine voucher amounts in different metro areas. They rely on Census ACS rent estimates, local CPI measures, and other adjustment factors to determine the maximum allowed rent levels. HUD calculates the Fair Market Rent based on the 40th percentile of the gross rents paid by recent movers for non-luxury units meeting certain quality standards. If set too low, inaccurate FMRs can significantly harm renters by making housing harder to find. 
 
 
-    If set too high, they can waste valuable government resources. Analysis by the Center on Budget and Policy Priorities has suggested that HUD FMRs historically were set too low. To mitigate this problem, which was compounded by poor availability of ACS data due to COVID in 2021, HUD has begun supplementing public rental data sources with private rental data sources (Zillow, RealPage, Moody’s, CoStar, CoreLogic, Apartment List).
+    If set too high, they can waste valuable government resources. [Analysis](https://www.cbpp.org/research/housing/new-hud-fair-market-rent-policy-can-help-local-agencies-reduce-homelessness-and){target="_blank"} by the Center on Budget and Policy Priorities has suggested that HUD FMRs historically were set too low. To mitigate this problem, which was compounded by poor availability of ACS data due to COVID in 2021, HUD has begun supplementing public rental data sources with private rental data sources (Zillow, RealPage, Moody’s, CoStar, CoreLogic, Apartment List).
   content-after: >
     Rental data accuracy does not only concern policymakers. Researchers use rental data to study empirical questions on neighborhood change, such as if new construction of market-rate apartments causes rents in the surrounding area to increase or decrease. Rental data is also used by residents and neighborhood activists as they engage in politics, whether it be campaigns for tenant protections or debates over proposed zoning changes.
 
@@ -230,3 +218,5 @@ chapter-7:
   hed: Conclusion
   content: In summary, the data sources we use help us understand and interpret the world around us. For most people, housing is their largest budget item. Their rent is a number ingrained in their psyche. Yet at a system level, tracking rent is more complicated than one might expect.  A better understanding of how rental data is measured—and the limitations of this data—allows one to be more thoughtful in approaching the housing challenges faced across the country. But this is not only an academic question. Rental data has a direct link to key elements of our social safety net and needs to be taken seriously and measured accurately.
 
+acknowledgments:
+  content: We would like to thank Carol G. for her support through the creation of this project.

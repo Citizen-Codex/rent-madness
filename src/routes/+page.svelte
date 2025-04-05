@@ -9,6 +9,7 @@
 	import Diverge from '$lib/components/sections/Diverge.svelte';
 	import Solutions from '$lib/components/sections/Solutions.svelte';
 	import Conclusion from '$lib/components/sections/Conclusion.svelte';
+	import Acknowledgements from '$lib/components/sections/Acknowledgements.svelte';
 
 	const { data } = $props();
 
@@ -25,3 +26,4 @@
 <Diverge />
 <Solutions />
 <Conclusion />
+<Acknowledgements />

@@ -40,7 +40,9 @@
 		<div class="flex basis-1/2 flex-col justify-center gap-10 px-8 py-16 md:px-16">
 			<ChapterNumber>7</ChapterNumber>
 			<h2 class="heading">{content.hed}</h2>
-			{@html md(content.content)}
+			<div class="body">
+				{@html md(content.content)}
+			</div>
 		</div>
 	</div>
 </Section>

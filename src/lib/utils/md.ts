@@ -38,7 +38,7 @@ const md = markdownit({
 })
   .use(markdownItBracketedSpans)
   .use(markdownItAttrs, {
-    allowedAttributes: ['class', 'id']
+    allowedAttributes: ['class', 'id', 'target']
   })
 
 export default (string: string) => `<div class="markdown">${md.render(string)}</div>`;

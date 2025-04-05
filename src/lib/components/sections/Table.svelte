@@ -29,7 +29,9 @@
 	<div class="content-well-large flex max-w-2xl flex-col gap-10">
 		<ChapterNumber>4</ChapterNumber>
 		<h2 class="heading">{content.hed}</h2>
-		{@html md(content.content)}
+		<div class="body">
+			{@html md(content.content)}
+		</div>
 	</div>
 
 	<div class="content-well-large overflow-x-auto lg:overflow-x-visible">
@@ -64,7 +66,7 @@
 												open[i] = true;
 											}
 										}}
-										>{open[i] ? 'View Less' : 'View More'}
+										>{open[i] ? 'Hide' : 'Learn More'}
 										<iconify-icon
 											icon="mdi:chevron-down"
 											class={['shrink-0 text-2xl transition-all', open[i] && 'rotate-180']}

@@ -7,5 +7,3 @@ export const load = () => {
     ...page,
   };
 };
-
-

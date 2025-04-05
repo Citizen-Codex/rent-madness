@@ -18,15 +18,15 @@
 
 <Popover.Root bind:open={popoverOpen}>
 	<Popover.Trigger
-		class="bg-white-true border-orange fixed top-4 left-4 z-50 flex h-10 w-10 items-center justify-center rounded-full border"
+		class="fixed top-4 left-4 z-50 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-black bg-white transition-transform hover:scale-110"
 	>
-		<iconify-icon icon="heroicons-outline:menu-alt-1" class="text-orange text-2xl"></iconify-icon>
+		<iconify-icon icon="heroicons-outline:menu-alt-1" class="text-2xl text-black"></iconify-icon>
 	</Popover.Trigger>
 	<Popover.Content
 		align="start"
 		sideOffset={10}
 		preventScroll={true}
-		class="bg-white-true border-orange z-50 rounded border py-1 shadow"
+		class="z-50 rounded border border-black bg-white py-1 shadow"
 		forceMount={true}
 	>
 		{#snippet child({ wrapperProps, props, open })}
@@ -38,10 +38,10 @@
 								{href}
 								onclick={() => (popoverOpen = false)}
 								class={[
-									'hover:bg-orange-light/20 cta-small flex items-center gap-2 px-4 py-1 font-normal normal-case'
+									'cta-small flex items-center gap-2 px-4 py-1 font-normal normal-case hover:bg-black/20'
 								]}
 							>
-								<div class="bg-orange h-0.5 w-3 rounded-full"></div>
+								<div class="h-0.5 w-3 rounded-full bg-black"></div>
 								{title}
 							</a>
 						{/each}

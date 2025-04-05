@@ -43,7 +43,7 @@
 	});
 </script>
 
-<section id="explore">
+<section id="tour">
 	<Scroller top={0} threshold={0.7} bottom={1} query=".step" bind:index>
 		{#snippet background()}
 			<Basemap {view} {mapInteractive} bind:setView {index} />
@@ -73,7 +73,8 @@
 
 				<!-- Explorer -->
 				<div
-					class="step mb sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+					class="step sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+					id="explore"
 				>
 					<h3 class="heading-small">{content.explorer.hed}</h3>
 					<p class="body">{content.explorer.content}</p>

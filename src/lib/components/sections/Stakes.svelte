@@ -26,7 +26,7 @@
 		/>
 	</div>
 
-	<div class="content-well-small">
+	<div class="content-well-small body">
 		{@html md(content.content)}
 	</div>
 </Section>
