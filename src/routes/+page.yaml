@@ -33,7 +33,7 @@ chapter-1:
     However, relief soon turned into despair. JoAnn spent five months searching for an apartment, but she could not find a unit in her budget and with a landlord accepting vouchers. Housing vouchers operate under a use-it-or-lose principle and voucher holders are given a limited time for their searches. After JoAnn’s voucher expired, she was forced to move into a crowded rental with her pregnant daughter’s family.  
 
 
-    Crucial context for JoAnn’s story is the rapid rent increases in Phoenix at the time. Market rents in the Phoenix area are [reported](https://eu.azcentral.com/in-depth/money/real-estate/2022/08/15/why-its-so-hard-use-housing-choice-voucher-phoenix-area/10092282002/){target="_blank"} to have risen nearly 30 percent between 2021 and 2022, faster than the rental payment standards of the federal government.
+    Crucial context for JoAnn’s story is the rapid rent increases in Phoenix at the time. Market rents in the Phoenix area are [reported](https://eu.azcentral.com/in-depth/money/real-estate/2022/08/15/why-its-so-hard-use-housing-choice-voucher-phoenix-area/10092282002/){target="_blank"} to have **risen nearly 30 percent between 2021 and 2022**, faster than the rental payment standards of the federal government.
 
 
     Rental statistics are not just background details. How rental data are measured, aggregated, and reported directly influence the housing outcomes of renters like JoAnn. If the statistics data the government uses to set rental assistance amounts do not match the reality on the ground, people can go unhoused.
@@ -55,11 +55,11 @@ chapter-2:
       view:
         zoom: 9.15
         center: [-122.253, 37.732]
-    - content: In some parts of the country, one can see a clear spatial distribution of rent discrepancies, such as the Atlanta metro area. Rent discrepancies are apparent in central city areas as well as in a ring of zip codes that surround the outlying areas
+    - content: In some parts of the country, one can see a clear spatial distribution of rent discrepancies, such as the **Atlanta** metro area. Rent discrepancies are apparent in central city areas as well as in a ring of zip codes that surround the outlying areas
       view:
         zoom: 8.33
         center: [-84.305, 33.873]
-    - content: The absence of rental data is also a significant concern, especially in rural areas. Sparsely populated states like Montana have limited rental data on private apartment listing websites outside the larger cities like Bozeman.
+    - content: The absence of rental data is also a significant concern, especially in rural areas. Sparsely populated states like **Montana** have limited rental data on private apartment listing websites outside the larger cities like Bozeman.
       view:
         zoom: 6.11
         center: [-109.111, 47.024]
@@ -84,7 +84,7 @@ chapter-2:
 
 chapter-3:
   hed: 'Bad Rental Data has Policy Implications: Fair Market Rent'
-  dek: To better understand what happened to JoAnn and the real-world impacts of inaccurate rental data, it’s worth diving deeper into how rental data is used to set voucher levels.  
+  dek: When rental market information is inaccurate, it affects not just individuals but entire communities seeking affordable housing options through assistance programs. It's worth exploring how rental data is used to set voucher levels across housing assistance programs.  
   content-before: >
     HUD’s Fair Market Rent (FMR) standards determine voucher amounts in different metro areas. They rely on Census ACS rent estimates, local CPI measures, and other adjustment factors to determine the maximum allowed rent levels. HUD calculates the Fair Market Rent based on the 40th percentile of the gross rents paid by recent movers for non-luxury units meeting certain quality standards. If set too low, inaccurate FMRs can significantly harm renters by making housing harder to find. 
 
@@ -104,15 +104,12 @@ chapter-4:
     rows:
       - sources:
           title: Public data sources
-          examples: (Census ACS, BLS, HUD)
+          examples: (Census ACS, BLS)
           detail: The U.S. Census American Community Survey (ACS) is the most representative of the rental data sources, given the large sample of roughly 3.5 million addresses. Yet it has limitations. 
         timeliness:
           score: 0
           detail: > 
-            1-2 year lag in new ACS Census data. Depending on ACS geography, must use 1-year or 5-year average estimates.  
-
-
-            Larger ACS for small geographies.
+            1-2 year lag in new ACS Census data. Depending on ACS geography, must use 1-year or 5-year average estimates, resulting in poor time resolution for small geographies.
         granularity:
           score: 0
           detail: >
@@ -129,11 +126,12 @@ chapter-4:
             Representative survey of 3.5M U.S. addresses. 
         availability:
           score: 2
-          detail: Publicly available historical microdata. 
-        detail: ACS data are aggregated and reported only as estimates for housing units in a geographic area, like a census tract, city, or county. It’s hard to get full distributions of ACS rental data, which would allow granular breakdowns of rent costs. Often, the best ACS can do is offer summary statistics like the median. Timing is another challenge, as data for larger geographies, like counties or metro areas, are released annually, and data for smaller areas, like census tracts and zip codes, are only available as rolling five-year averages. This is a barrier to using Census data for up-to-date information on neighborhood housing trends in fast-moving markets.
+          detail: Publicly available, with historical microdata. 
+        detail: ACS Public Use Microdata Sample (PUMS) contains individual level rent data but it has limitated geographic information tied to those individual records due to privacy concerns. The analyzed ACS data are aggregated and reported as estimates for housing units in a geographic area, like a census tract, city, or county. It’s hard to get full distributions of ACS rental data, which would allow granular breakdowns of rent costs. Often, the best ACS can do is offer summary statistics like the median. Timing is another challenge, as data for larger geographies, like counties or metro areas, are released annually, and data for smaller areas, like census tracts and zip codes, are only available as rolling five-year averages. This is a barrier to using Census data for up-to-date information on neighborhood housing trends in fast-moving markets.
+
       - sources:
           title: Apartment listing websites
-          examples: (Zillow, Apartments.com, Realtor.com)
+          examples: (Zillow, Apartment List, Realtor.com)
           detail: Apartment listing websites like Zillow and Apartment List have built out sizable rental database capabilities. However, a major weakness is that these platforms have a limited coverage of the rental market. 
         timeliness:
           score: 2
@@ -148,17 +146,17 @@ chapter-4:
         completeness:
           score: 0
           detail: >
-           New rental contracts/asking rents. Biased by the properties listed on their websites. 
+            New rental contracts/asking rents.
 
-            
-           Limited information on the lower-cost rental market segments that are not professionally managed. Biased to include higher cost units. 
+
+            Limited information on the lower-cost rental market segments that are not professionally managed. Biased to include higher cost units and properties listed on their websites. 
         availability:
           score: 1
           detail: Publicly available aggregated data from when collection started. 
-        detail: They can provide summary data on the current market conditions of apartments listed on their platforms however the universe of units on their platform is not broadly representative. Research has indicated that apartment listing websites are disproportionately composed of higher-cost rental units and that data is biased to overrepresent whiter, wealthier, and better-educated communities. Lastly, these websites report the “asking rents” of landlords and do not necessarily capture rent concessions and other subtleties—if that data is collected, it tends to remain a proprietary, insider insight. 
+        detail: Apartment listing websites can provide summary data on the current market conditions of apartments listed on their platforms; however, the universe of units on these platform is not broadly representative. Research has indicated that apartment listing websites are disproportionately composed of higher-cost rental units and that data is biased to overrepresent whiter, wealthier, and better-educated communities. Lastly, these websites report the “asking rents” of landlords and do not necessarily capture rent concessions and other subtleties—if that data is collected, it tends to remain a proprietary, insider insight. 
       - sources:
           title: Commercial proprietary data brokers
-          examples: (CoreLogic, CoStar, RealPage, Moody’s)
+          examples: (CoStar, RealPage)
           detail: Commercial proprietary data brokers, such as CoStar and RealPage, create databases of real estate information. These firms charge premium prices for the resulting data sets. 
         timeliness:
           score: 2
@@ -167,10 +165,14 @@ chapter-4:
           score: 2
           detail: Aggregate data and unit level data.
         completeness:
-          score: 2
-          detail: Aggregate data and unit level data.
+          score: 0
+          detail: >
+            New rental contracts/asking rents.
+
+
+            Traditionally surveys of medium-to-large apartment property owners (for example, 50 units or more). Tend to have limited information on the lower-cost rental market segments that are not professionally managed and bias towards higher cost units. 
         availability:
-          score: 1
+          score: 0
           detail: Private data source available for purchase.
         detail: These databases are built by sending surveys of apartment property owners (usually limited to some minimum size, for example, 50 units or more). These firms charge premium prices for the resulting data sets, although the news media are often given aggregated summaries. Given the nature of the targeted sample, these proprietary datasets also tend to have limited information on the lower-cost rental market segments that are not professionally managed (e.g. garage apartments, condominiums, houses for rent, small, self-managed apartment buildings, and granny flats).
 

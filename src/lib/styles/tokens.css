@@ -30,6 +30,19 @@
   --color-map-4: #6F301D;
   --color-map-5: #B4B4B4;
   --color-map-6: #FFF9F2;
+
+  --animate-bounce: bounce 0.7s cubic-bezier(0.36, 0, 0.66, -0.56) infinite alternate;
+
+  @keyframes bounce {
+
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(25%);
+    }
+  }
 }
 
 

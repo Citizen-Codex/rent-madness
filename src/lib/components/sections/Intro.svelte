@@ -7,18 +7,22 @@
 	let content = page.data.intro;
 </script>
 
-<Section id="introduction">
-	<div class="content-well-small font-mono tracking-wide uppercase">
-		{@html md(content.byline)}
-	</div>
+<div class="bg-white">
+	<Section id="introduction">
+		<div class="content-well-small font-mono tracking-wide uppercase">
+			{@html md(content.byline)}
+		</div>
 
-	<div class="body content-well-small">
-		{@html md(content['content-before'])}
-	</div>
+		<div class="body content-well-small">
+			{@html md(content['content-before'])}
+		</div>
+	</Section>
 
 	<Houses />
 
-	<div class="body content-well-small">
-		{@html md(content['content-after'])}
-	</div>
-</Section>
+	<Section>
+		<div class="body content-well-small">
+			{@html md(content['content-after'])}
+		</div>
+	</Section>
+</div>

@@ -19,6 +19,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
 	import MapLegend from './MapLegend.svelte';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 	let { view, setView = $bindable(), mapInteractive, index } = $props();
 
@@ -45,6 +46,7 @@
 		});
 
 		await map.once('load');
+		ScrollTrigger.refresh();
 
 		mapControl = new mapbox.NavigationControl({ showCompass: false });
 

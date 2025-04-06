@@ -53,14 +53,18 @@
 			<div class="flex flex-col items-center px-4 md:px-8">
 				<!-- Intro -->
 				<div
-					class="step mt-16 mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+					class="step mt-[20vh] mr-auto mb-[90vh] flex w-full max-w-md flex-col gap-10 rounded-lg border bg-white px-6 py-8"
 				>
 					<ChapterNumber>2</ChapterNumber>
 					<h2 class="heading">{content.hed}</h2>
 					<p class="body">{content.dek}</p>
 					<div class="cta flex items-center gap-4">
 						{content.cta}
-						<IconCircle icon="mdi:chevron-down" class="bg-orange text-2xl text-white" />
+						<IconCircle
+							icon="mdi:chevron-down"
+							class="bg-orange text-white"
+							iconClasses="animate-bounce text-2xl"
+						/>
 					</div>
 				</div>
 
@@ -73,7 +77,7 @@
 
 				<!-- Explorer -->
 				<div
-					class="step sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8"
+					class="step sticky -top-[300px] mr-auto mb-20 flex w-full max-w-lg flex-col gap-10 rounded-lg border bg-white px-6 py-8 sm:ml-8"
 					id="explore"
 				>
 					<h3 class="heading-small">{content.explorer.hed}</h3>
@@ -98,7 +102,7 @@
 					</div>
 				</div>
 
-				<div class="h-[calc(100vh-174px)]"></div>
+				<div class="h-[calc(110vh)]"></div>
 			</div>
 		{/snippet}
 	</Scroller>
