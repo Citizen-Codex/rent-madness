@@ -93,65 +93,86 @@
 		{@html md(content['content-before'])}
 	</div>
 
-	<div class="content-well-medium flex flex-col gap-8">
-		<div class="flex flex-col gap-3">
-			<p class="heading-small">Rent Disparities in Phoenix</p>
-			<p class="subheading">
-				Looking at the actual rent measures across zip codes, the disparities in prices jump out for
-				particular neighborhoods.
-			</p>
-		</div>
-
-		<div class="flex flex-wrap gap-x-4 gap-y-2">
-			{#each legend as { color, label } (label)}
-				<div class="flex items-center gap-1">
-					<div class={['h-3 w-3 rounded-full', color]}></div>
-					<p class="label">{label}</p>
-				</div>
-			{/each}
-		</div>
-
-		<div class="flex max-h-[60vh] overflow-x-hidden overflow-y-auto">
-			<div class="cta-small h-fit w-18 border-r-2 border-black">
-				{#each data as { name } (name)}
-					<div class="flex h-6 items-center justify-between gap-2">
-						<p>{name}</p>
-						<div class="h-0.5 w-2 bg-black"></div>
-					</div>
-				{/each}
-				<div class="sticky bottom-0 h-6 w-full bg-white"></div>
+	<div class="content-well-medium">
+		<div class="bg-white-true flex flex-col gap-8 rounded-xl border border-black p-4 md:p-8">
+			<div class="flex flex-col gap-3">
+				<p class="heading-small">Rent Disparities in Phoenix</p>
+				<p class="subheading">
+					Looking at the actual rent measures across zip codes, the disparities in prices jump out
+					for particular neighborhoods.
+				</p>
 			</div>
-			<div class="relative h-fit w-full">
-				{#each xScale.ticks(5) as tick (tick)}
-					<div
-						style:left={`${xScale(tick)}%`}
-						class="bg-gray-medium absolute inset-y-0 w-[0.5px]"
-					></div>
-				{/each}
-				{#each data as { name, acs, zori }, i (name)}
-					<div class="relative flex h-6 items-center gap-2">
-						<div class="bg-gray-medium absolute inset-x-0 h-[0.5px]"></div>
-						{#if acs && zori}
-							<div
-								class="bg-gray absolute h-px"
-								style:left={`${xScale(Math.min(acs, zori))}%`}
-								style:right={`${100 - xScale(Math.max(acs, zori))}%`}
-							></div>
-						{/if}
-						{#if acs}
-							{@render dot(i, 'bg-yellow', xScale(acs))}
-						{/if}
-						{#if zori}
-							{@render dot(i, 'bg-orange', xScale(zori))}
-						{/if}
+
+			<div class="flex flex-wrap gap-x-4 gap-y-2">
+				{#each legend as { color, label } (label)}
+					<div class="flex items-center gap-1">
+						<div class={['h-3 w-3 rounded-full', color]}></div>
+						<p class="label">{label}</p>
 					</div>
 				{/each}
-				<div class="label sticky bottom-0 -ml-0.5 flex h-6 w-full items-end bg-white">
-					{#each xScale.ticks(5) as tick (tick)}
-						<div style:left={`${xScale(tick)}%`} class="absolute ml-0.5 -translate-x-1/2">
-							{formatNumber(tick)}
+			</div>
+
+			<div>
+				<div class="flex max-h-[60vh] overflow-x-hidden overflow-y-auto">
+					<div class="cta-small h-fit w-18 border-r-2 border-black">
+						{#each data as { name } (name)}
+							<div class="flex h-10 items-center justify-between gap-2">
+								<p>{name}</p>
+								<div class="h-0.5 w-2 bg-black"></div>
+							</div>
+						{/each}
+						<div class="bg-white-true sticky bottom-0 h-6 w-full"></div>
+					</div>
+					<div class="relative h-fit w-full">
+						{#each xScale.ticks(5) as tick (tick)}
+							<div
+								style:left={`${xScale(tick)}%`}
+								class="bg-gray-medium absolute inset-y-0 w-[0.5px]"
+							></div>
+						{/each}
+						{#each data as { name, acs, zori }, i (name)}
+							<div class="relative flex h-10 items-center gap-2">
+								<div class="bg-gray-medium absolute inset-x-0 h-[0.5px]"></div>
+								{#if acs && zori}
+									<div
+										class="bg-gray absolute h-px"
+										style:left={`${xScale(Math.min(acs, zori))}%`}
+										style:right={`${100 - xScale(Math.max(acs, zori))}%`}
+									></div>
+								{/if}
+
+								{#if acs}
+									{@render dot(i, 'bg-yellow', xScale(acs))}
+								{/if}
+
+								{#if zori}
+									{@render dot(i, 'bg-orange', xScale(zori))}
+								{/if}
+
+								{#if acs && zori}
+									{@const diff = zori - acs}
+									{@const position = (xScale(acs) + xScale(zori)) / 2}
+									<div
+										class=" absolute top-2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm"
+										style:left={`${position}%`}
+									>
+										{formatNumber(diff)}
+									</div>
+								{/if}
+							</div>
+						{/each}
+						<div class="label bg-white-true sticky bottom-0 -ml-0.5 flex h-6 w-full items-end">
+							{#each xScale.ticks(5) as tick (tick)}
+								<div style:left={`${xScale(tick)}%`} class="absolute ml-0.5 -translate-x-1/2">
+									{formatNumber(tick)}
+								</div>
+							{/each}
 						</div>
-					{/each}
+					</div>
+				</div>
+				<div class="label mt-4 ml-auto flex w-fit items-center gap-1">
+					Rent Price
+					<iconify-icon icon="mdi:arrow-right"></iconify-icon>
 				</div>
 			</div>
 		</div>
