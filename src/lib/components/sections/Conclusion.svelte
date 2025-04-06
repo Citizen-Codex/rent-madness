@@ -12,9 +12,9 @@
 </script>
 
 <Section borderTop padding={false} id="conclusion">
-	<div class="flex">
+	<div class="flex flex-col md:flex-row">
 		<div
-			class="bg-gray-light relative flex min-h-[60vh] basis-1/2 items-center justify-center overflow-hidden"
+			class="bg-gray-light relative flex min-h-[40vh] basis-1/2 items-center justify-center overflow-hidden md:min-h-[60vh]"
 		>
 			<Background />
 			<div class="pointer-events-none relative">
@@ -37,7 +37,7 @@
 				{/each}
 			</div>
 		</div>
-		<div class="flex basis-1/2 flex-col justify-center gap-10 px-8 py-16 md:px-16">
+		<div class="flex basis-1/2 flex-col justify-center gap-6 px-8 py-16 md:gap-10 md:px-16">
 			<ChapterNumber>7</ChapterNumber>
 			<h2 class="heading">{content.hed}</h2>
 			<div class="body">

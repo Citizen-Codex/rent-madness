@@ -125,8 +125,15 @@
 			@apply w-full max-w-none rounded-none border border-black bg-transparent shadow-none;
 		}
 
+		:global(.mapboxgl-ctrl-geocoder--icon-search) {
+			left: 7px;
+			top: 7px;
+			height: 20px;
+			width: 20px;
+		}
+
 		:global(.mapboxgl-ctrl-geocoder--input) {
-			@apply font-mono text-black placeholder:font-mono;
+			@apply h-9 px-8 py-1 font-mono text-black placeholder:font-mono;
 		}
 
 		:global(.suggestions) {

@@ -10,7 +10,7 @@
 </script>
 
 <Section borderTop id="stakes">
-	<div class="content-well-medium flex flex-col items-center gap-10">
+	<div class="content-well-medium flex flex-col items-center gap-6 md:gap-10">
 		<ChapterNumber>1</ChapterNumber>
 		<h2 class="heading max-w-md text-center">{content.hed}</h2>
 		<p class="subheading text-center">

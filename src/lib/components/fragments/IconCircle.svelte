@@ -13,10 +13,11 @@
 	class={[
 		'flex items-center justify-center rounded-full',
 		classes,
-		{ 'h-12 w-12': size === 'lg' },
+		{ 'h-8 w-8 md:h-12 md:w-12': size === 'lg' },
 		{ 'h-10 w-10': size === 'md' },
 		{ 'h-8 w-8': size === 'sm' }
 	]}
+	{...rest}
 >
-	<iconify-icon {icon} class={iconClasses} {...rest}></iconify-icon>
+	<iconify-icon {icon} class={iconClasses}></iconify-icon>
 </div>

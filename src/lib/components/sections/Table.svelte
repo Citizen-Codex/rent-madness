@@ -26,7 +26,7 @@
 </script>
 
 <Section borderTop background={false} id="types">
-	<div class="content-well-large flex max-w-2xl flex-col gap-10">
+	<div class="content-well-large flex max-w-2xl flex-col gap-6 md:gap-10">
 		<ChapterNumber>4</ChapterNumber>
 		<h2 class="heading">{content.hed}</h2>
 		<div class="body">

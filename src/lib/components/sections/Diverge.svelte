@@ -84,7 +84,7 @@
 {/snippet}
 
 <Section borderTop id="divergence">
-	<div class="content-well-small flex flex-col gap-10">
+	<div class="content-well-small flex flex-col gap-6 md:gap-10">
 		<ChapterNumber>5</ChapterNumber>
 		<h2 class="heading">{content.hed}</h2>
 	</div>

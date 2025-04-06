@@ -7,7 +7,7 @@
 </script>
 
 <Section borderTop id="acknowledgments">
-	<div class="content-well-small flex flex-col gap-10">
+	<div class="content-well-small flex flex-col gap-6 md:gap-10">
 		<h2 class="heading-small">About the Story</h2>
 		<div class="body">
 			{@html md(content.content)}

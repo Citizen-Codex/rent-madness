@@ -32,7 +32,7 @@
 				{/each}
 			</div>
 		{/each}
-		<h1 class="py-8 text-8xl font-semibold text-white">{page.data.hed}</h1>
+		<h1 class="pb-4 text-5xl font-semibold text-white md:py-8 md:text-8xl">{page.data.hed}</h1>
 		<p class="subheading border-y border-white p-6 font-medium text-white">{page.data.dek}</p>
 		<a href="#explore" class="cta group pointer-events-auto flex items-center gap-4 bg-white p-4">
 			{page.data['cta-explore']}
