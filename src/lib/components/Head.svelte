@@ -23,5 +23,7 @@
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content={page.data.site_url} />
-	<meta property="twitter:image" content={page.data.image.large} />
+	<meta property="twitter:image" content={page.data.image.src} />
+	<meta property="twitter:title" content={page.data.title} />
+	<meta property="twitter:description" content={page.data.description} />
 </svelte:head>

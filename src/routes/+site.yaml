@@ -2,7 +2,7 @@ title: Rent Madness
 description: Why is America’s rental data so bad, why does it matter, and what can we do about it?
 publisher: Citizen Codex
 publisher_url: https://citizencodex.com
-site_url: https://rentmadness.citizencodex.com
+site_url: https://rent-madness.vercel.app
 image:
-  src: https://rentmadness.citizencodex.com/share.png
+  src: https://rent-madness.vercel.app/share.png
   alt: Rent Madness
