@@ -97,13 +97,18 @@
 		<div class="bg-white-true flex flex-col gap-8 rounded-xl border border-black p-4 md:p-8">
 			<div class="flex flex-col gap-3">
 				<p class="heading-small">Rent Disparities in Phoenix</p>
-				<p class="subheading">
+				<p class="body">
 					Looking at the actual rent measures across zip codes, the disparities in prices jump out
 					for particular neighborhoods.
 				</p>
+
+				<div class="label text-gray flex items-center gap-1">
+					<iconify-icon icon="heroicons:cursor-arrow-ripple-solid"></iconify-icon>
+					Hover on the dots to see more information
+				</div>
 			</div>
 
-			<div class="flex flex-wrap gap-x-4 gap-y-2">
+			<div class="flex flex-wrap justify-center gap-x-4 gap-y-2">
 				{#each legend as { color, label } (label)}
 					<div class="flex items-center gap-1">
 						<div class={['h-3 w-3 rounded-full', color]}></div>
@@ -112,7 +117,7 @@
 				{/each}
 			</div>
 
-			<div>
+			<div class="flex flex-col gap-4">
 				<div class="flex max-h-[60vh] overflow-x-hidden overflow-y-auto">
 					<div class="cta-small h-fit w-18 border-r-2 border-black">
 						{#each data as { name } (name)}
@@ -170,7 +175,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="label mt-4 ml-auto flex w-fit items-center gap-1">
+				<div class="label text-gray ml-auto flex w-fit items-center gap-1">
 					Rent Price
 					<iconify-icon icon="mdi:arrow-right"></iconify-icon>
 				</div>
