@@ -21,6 +21,11 @@
       @apply font-medium underline;
     }
 
+    ul,
+    ol {
+      @apply list-disc flex flex-col gap-2 ml-4;
+    }
+
     span.highlighted {
       @apply -mx-0.5 rounded px-0.5;
     }

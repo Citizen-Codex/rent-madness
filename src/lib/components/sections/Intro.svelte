@@ -16,9 +16,21 @@
 		<div class="body content-well-small">
 			{@html md(content['content-before'])}
 		</div>
+
+		<div class="subheading markdown content-well relative text-center font-light">
+			<p>
+				<strong>50.4%</strong> of all renter households were
+				<span class="bg-yellow highlighted">cost-burdened</span> in 2022.
+			</p>
+		</div>
 	</Section>
 
 	<Houses />
+
+	<div class="content-well-small label text-gray">
+		Source: Joint Center for Housing Studies of Harvard University, The State of the Nation's
+		Housing 2024
+	</div>
 
 	<Section>
 		<div class="body content-well-small">

@@ -57,7 +57,8 @@
 
 	const legend = [
 		{ color: 'bg-yellow', label: 'Median rent from ACS' },
-		{ color: 'bg-orange', label: 'Mean ZORI value' }
+		{ color: 'bg-orange', label: 'Mean ZORI value' },
+		{ color: 'bg-black !h-0.5', label: 'Price disparity' }
 	];
 
 	const maxX = max(data, (d) => Math.max(d.acs ?? 0, d.zori ?? 0));
@@ -110,7 +111,7 @@
 
 			<div class="flex flex-wrap justify-center gap-x-4 gap-y-2">
 				{#each legend as { color, label } (label)}
-					<div class="flex items-center gap-1">
+					<div class="flex items-center gap-2">
 						<div class={['h-3 w-3 rounded-full', color]}></div>
 						<p class="label">{label}</p>
 					</div>
