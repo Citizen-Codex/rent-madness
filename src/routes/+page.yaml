@@ -102,7 +102,7 @@ chapter-3:
 chapter-4:
   hed: Types of rental data sources 
   content: >
-    There are three primary types of rental data: public data, apartment listing websites, and commercial proprietary data brokers. Each data source has different strengths and limitations, shaped by the sample universe and biases, level of granularity, and frequency of updates.
+    There are three primary types of rental data: public data, apartment listing websites, and commercial proprietary data brokers. Each data source has different strengths and limitations, shaped by frequency and **timeliness** of updates, level of **geographic granularity**, the **sample completeness** and biases and **availability** of data.
 
 
     Depending on the analytical question at hand, different rental data sources are better suited than others. For example, public data sources are well suited for analyzing rents paid by all renter households—including both new and existing leases. But if you're interested in the experiences of people currently searching for an apartment, listing websites or commercial broker data provide more timely insights. 

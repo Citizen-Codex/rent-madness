@@ -45,6 +45,10 @@
   }
 }
 
+@utility highlighted {
+  @apply -mx-0.5 rounded px-0.5;
+}
+
 
 @utility heading {
   @apply font-serif text-4xl md:text-5xl font-semibold leading-none;
@@ -67,11 +71,11 @@
 }
 
 @utility cta-small {
-  @apply font-mono font-medium text-sm leading-none uppercase;
+  @apply font-mono font-medium text-xs md:text-sm leading-none uppercase;
 }
 
 @utility label {
-  @apply font-mono text-sm leading-tight;
+  @apply font-mono text-xs sm:text-sm leading-tight;
 }
 
 @utility content-well-small {

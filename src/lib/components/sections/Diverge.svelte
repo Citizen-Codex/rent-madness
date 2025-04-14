@@ -11,48 +11,98 @@
 	const content = page.data['chapter-5'];
 
 	const data = [
-		{ name: '85017', acs: 922, zori: 1562 },
-		{ name: '85034', acs: 908, zori: 1534 },
-		{ name: '85031', acs: 992, zori: 1494 },
-		{ name: '85041', acs: 1128, zori: 1666 },
-		{ name: '85040', acs: 913, zori: 1327 },
-		{ name: '85033', acs: 974, zori: 1405 },
-		{ name: '85003', acs: 1091, zori: 1507 },
-		{ name: '85043', acs: 1182, zori: 1547 },
-		{ name: '85006', acs: 898, zori: 1120 },
-		{ name: '85018', acs: 1164, zori: 1432 },
-		{ name: '85051', acs: 956, zori: 1159 },
-		{ name: '85042', acs: 1139, zori: 1360 },
-		{ name: '85050', acs: 1795, zori: 2097 },
-		{ name: '85013', acs: 1141, zori: 1328 },
-		{ name: '85037', acs: 1227, zori: 1422 },
-		{ name: '85008', acs: 1038, zori: 1201 },
-		{ name: '85032', acs: 1171, zori: 1323 },
-		{ name: '85035', acs: 1047, zori: 1163 },
-		{ name: '85004', acs: 1456, zori: 1599 },
-		{ name: '85016', acs: 1255, zori: 1359 },
-		{ name: '85022', acs: 1179, zori: 1272 },
-		{ name: '85021', acs: 973, zori: 1046 },
-		{ name: '85023', acs: 1151, zori: 1233 },
-		{ name: '85015', acs: 964, zori: 1013 },
-		{ name: '85027', acs: 1194, zori: 1240 },
-		{ name: '85014', acs: 1153, zori: 1190 },
-		{ name: '85053', acs: 1095, zori: 1125 },
-		{ name: '85085', acs: 1527, zori: 1565 },
-		{ name: '85020', acs: 1147, zori: 1173 },
-		{ name: '85086', acs: 1761, zori: 1774 },
-		{ name: '85012', acs: 1475, zori: 1412 },
-		{ name: '85044', acs: 1462, zori: 1390 },
-		{ name: '85048', acs: 1598, zori: 1516 },
-		{ name: '85024', acs: 1495, zori: 1410 },
-		{ name: '85054', acs: 1823, zori: 1685 },
-		{ name: '85029', acs: 1108, zori: 986 },
-		{ name: '85007', acs: 827, zori: null },
-		{ name: '85009', acs: 866, zori: null },
-		{ name: '85019', acs: 987, zori: null },
-		{ name: '85028', acs: 1458, zori: null },
-		{ name: '85045', acs: 1910, zori: null },
-		{ name: '85083', acs: 1707, zori: null }
+		{ zip: '85017', neighborhood: 'Maryvale', acs: 922, zori: 1562 },
+		{ zip: '85034', neighborhood: 'Sky Harbor Area', acs: 908, zori: 1534 },
+		{ zip: '85031', neighborhood: 'Maryvale West', acs: 992, zori: 1494 },
+		{ zip: '85041', neighborhood: 'South Mountain', acs: 1128, zori: 1666 },
+		{ zip: '85040', neighborhood: 'South Phoenix', acs: 913, zori: 1327 },
+		{ zip: '85033', neighborhood: 'Maryvale South', acs: 974, zori: 1405 },
+		{ zip: '85003', neighborhood: 'Downtown Phoenix', acs: 1091, zori: 1507 },
+		{ zip: '85043', neighborhood: 'Estrella', acs: 1182, zori: 1547 },
+		{ zip: '85006', neighborhood: 'Garfield/Eastlake', acs: 898, zori: 1120 },
+		{ zip: '85018', neighborhood: 'Arcadia', acs: 1164, zori: 1432 },
+		{ zip: '85051', neighborhood: 'North Mountain Village', acs: 956, zori: 1159 },
+		{ zip: '85042', neighborhood: 'South Mountain Park', acs: 1139, zori: 1360 },
+		{ zip: '85050', neighborhood: 'Desert View', acs: 1795, zori: 2097 },
+		{
+			zip: '85013',
+			neighborhood: 'Central Phoenix/Encanto',
+			acs: 1141,
+			zori: 1328
+		},
+		{ zip: '85037', neighborhood: 'West Phoenix', acs: 1227, zori: 1422 },
+		{
+			zip: '85008',
+			neighborhood: 'East Phoenix/Green Gables',
+			acs: 1038,
+			zori: 1201
+		},
+		{
+			zip: '85032',
+			neighborhood: 'Paradise Valley Village',
+			acs: 1171,
+			zori: 1323
+		},
+		{ zip: '85035', neighborhood: 'Maryvale East', acs: 1047, zori: 1163 },
+		{
+			zip: '85004',
+			neighborhood: 'Central City/Evans Churchill',
+			acs: 1456,
+			zori: 1599
+		},
+		{
+			zip: '85016',
+			neighborhood: 'Camelback East/Biltmore',
+			acs: 1255,
+			zori: 1359
+		},
+		{ zip: '85022', neighborhood: 'Moon Valley', acs: 1179, zori: 1272 },
+		{ zip: '85021', neighborhood: 'North Central Phoenix', acs: 973, zori: 1046 },
+		{ zip: '85023', neighborhood: 'Deer Valley', acs: 1151, zori: 1233 },
+		{ zip: '85015', neighborhood: 'Alhambra', acs: 964, zori: 1013 },
+		{ zip: '85027', neighborhood: 'North Phoenix', acs: 1194, zori: 1240 },
+		{ zip: '85014', neighborhood: 'Midtown Phoenix', acs: 1153, zori: 1190 },
+		{ zip: '85053', neighborhood: 'Northwest Phoenix', acs: 1095, zori: 1125 },
+		{ zip: '85085', neighborhood: 'Norterra', acs: 1527, zori: 1565 },
+		{ zip: '85020', neighborhood: 'Sunnyslope', acs: 1147, zori: 1173 },
+		{
+			zip: '85086',
+			neighborhood: 'New River/Desert Hills',
+			acs: 1761,
+			zori: 1774
+		},
+		{ zip: '85012', neighborhood: 'Central Corridor', acs: 1475, zori: 1412 },
+		{ zip: '85044', neighborhood: 'Ahwatukee North', acs: 1462, zori: 1390 },
+		{ zip: '85048', neighborhood: 'Ahwatukee South', acs: 1598, zori: 1516 },
+		{ zip: '85024', neighborhood: 'Desert Ridge', acs: 1495, zori: 1410 },
+		{
+			zip: '85054',
+			neighborhood: 'Desert Ridge/Mayo Clinic',
+			acs: 1823,
+			zori: 1685
+		},
+		{ zip: '85029', neighborhood: 'North Mountain', acs: 1108, zori: 986 },
+		{ zip: '85007', neighborhood: 'Capitol District', acs: 827, zori: null },
+		{
+			zip: '85009',
+			neighborhood: 'West Phoenix/Central City',
+			acs: 866,
+			zori: null
+		},
+		{ zip: '85019', neighborhood: 'West Phoenix/Maryvale', acs: 987, zori: null },
+		{
+			zip: '85028',
+			neighborhood: 'Paradise Valley/Mountain View',
+			acs: 1458,
+			zori: null
+		},
+		{ zip: '85045', neighborhood: 'Ahwatukee Foothills', acs: 1910, zori: null },
+		{
+			zip: '85083',
+			neighborhood: 'Sonoran Desert Preserve',
+			acs: 1707,
+			zori: null
+		}
 	];
 
 	const legend = [
@@ -71,17 +121,19 @@
 </script>
 
 {#snippet dot(index: number, color: string, left: number)}
-	{@const id = `dot-${data[index].name}-${color}`}
-	<div
+	{@const id = `dot-${data[index].zip}-${color}`}
+	<button
+		aria-label={data[index].zip}
 		{id}
 		class={[
 			'absolute h-3 w-3 -translate-x-1/2 cursor-crosshair rounded-full border border-white transition-all hover:scale-110 hover:border-black',
 			color
 		]}
+		onclick={() => (hovered = { id, data: data[index] })}
 		onpointerenter={() => (hovered = { id, data: data[index] })}
 		onpointerleave={() => (hovered = undefined)}
 		style:left={`${left}%`}
-	></div>
+	></button>
 {/snippet}
 
 <Section borderTop id="divergence">
@@ -120,10 +172,13 @@
 
 			<div class="flex flex-col gap-4">
 				<div class="flex max-h-[60vh] overflow-x-hidden overflow-y-auto">
-					<div class="cta-small h-fit w-18 border-r-2 border-black">
-						{#each data as { name } (name)}
+					<div class="cta-small h-fit w-1/4 border-r-2 border-black">
+						{#each data as { neighborhood, zip } (zip)}
 							<div class="flex h-10 items-center justify-between gap-2">
-								<p>{name}</p>
+								<div class="overflow-hidden">
+									<p class="overflow-hidden text-ellipsis whitespace-nowrap">{neighborhood}</p>
+									<p class="text-gray text-xs">{zip}</p>
+								</div>
 								<div class="h-0.5 w-2 bg-black"></div>
 							</div>
 						{/each}
@@ -136,7 +191,7 @@
 								class="bg-gray-medium absolute inset-y-0 w-[0.5px]"
 							></div>
 						{/each}
-						{#each data as { name, acs, zori }, i (name)}
+						{#each data as { zip, acs, zori }, i (zip)}
 							<div class="relative flex h-10 items-center gap-2">
 								<div class="bg-gray-medium absolute inset-x-0 h-[0.5px]"></div>
 								{#if acs && zori}
@@ -193,8 +248,8 @@
 	<ChartTooltip targetId={hovered?.id}>
 		<div class="markdown">
 			<p>
-				<strong>{hovered.data.name}</strong> has {#if hovered.data.zori}a mean Zillow Observed Rent
-					Index value of
+				<strong>{hovered.data.neighborhood}: {hovered.data.zip}</strong> has {#if hovered.data.zori}a
+					mean Zillow Observed Rent Index value of
 					<span class="bg-orange-light/40 highlighted font-mono"
 						>{formatNumber(hovered.data.zori)}</span
 					>
