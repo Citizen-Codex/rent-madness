@@ -37,7 +37,7 @@
 				{/each}
 			</div>
 		</div>
-		<div class="flex basis-1/2 flex-col justify-center gap-6 px-8 py-16 md:gap-10 md:px-16">
+		<div class="flex basis-1/2 flex-col justify-center gap-6 px-4 py-16 md:gap-10 md:px-16">
 			<ChapterNumber>7</ChapterNumber>
 			<h2 class="heading">{content.hed}</h2>
 			<div class="body">

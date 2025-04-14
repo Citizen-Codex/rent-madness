@@ -2,7 +2,9 @@
 	import { computePosition, offset, flip, shift, autoUpdate } from '@floating-ui/dom';
 	import { onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
-	let { targetId, children } = $props();
+	import { OutClick } from 'svelte-outclick';
+
+	let { targetId, close, children } = $props();
 
 	let tooltip = $state<HTMLElement>();
 	let target = $derived(document.querySelector(`#${targetId}`));
@@ -30,10 +32,14 @@
 	onDestroy(cleanup);
 </script>
 
-<div
-	in:fade={{ duration: 150 }}
-	bind:this={tooltip}
-	class="pointer-events-none absolute top-0 left-0 z-40 w-max max-w-sm rounded border border-black bg-white px-4 py-3 shadow"
->
-	{@render children?.()}
-</div>
+<svelte:window onscroll={close} />
+
+<OutClick onOutClick={close}>
+	<div
+		in:fade={{ duration: 150 }}
+		bind:this={tooltip}
+		class="pointer-events-none absolute top-0 left-0 z-40 w-max max-w-sm rounded border border-black bg-white px-4 py-3 shadow"
+	>
+		{@render children?.()}
+	</div>
+</OutClick>

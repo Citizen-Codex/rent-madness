@@ -71,7 +71,7 @@
 		</div>
 	</div>
 
-	<div class="content-well-large overflow-x-auto lg:overflow-x-visible">
+	<div class="content-well-large overflow-x-auto !px-0 sm:!px-4 lg:overflow-x-visible">
 		<table class="border-separate border-spacing-0">
 			<thead>
 				<tr>
@@ -132,7 +132,7 @@
 					{#if open[i]}
 						<tr>
 							<td colspan="5" class="!p-0 text-left">
-								<div transition:slide class="p-8">
+								<div transition:slide class="p-4 lg:p-8">
 									<div class="text-gray-dark text-sm md:text-base">
 										<div class="mb-4 lg:hidden">
 											{@html md(sources.detail)}

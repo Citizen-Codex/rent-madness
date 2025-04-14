@@ -43,7 +43,7 @@
 	});
 </script>
 
-<section id="tour">
+<section id="tour" class="relative z-[60] sm:z-0">
 	<Scroller top={0} threshold={0.7} bottom={1} query=".step" bind:index>
 		{#snippet background()}
 			<Basemap {view} {mapInteractive} bind:setView {index} />

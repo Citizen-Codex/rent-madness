@@ -122,14 +122,17 @@
 
 {#snippet dot(index: number, color: string, left: number)}
 	{@const id = `dot-${data[index].zip}-${color}`}
+	{@const currentHovered = hovered?.id === id}
 	<button
 		aria-label={data[index].zip}
 		{id}
 		class={[
-			'absolute h-3 w-3 -translate-x-1/2 cursor-crosshair rounded-full border border-white transition-all hover:scale-110 hover:border-black',
+			'absolute h-4 w-4 -translate-x-1/2 cursor-crosshair rounded-full border border-white transition-all hover:scale-125 hover:border-black',
+			currentHovered && 'scale-125 !border-black',
 			color
 		]}
 		onclick={() => (hovered = { id, data: data[index] })}
+		onblur={() => (hovered = undefined)}
 		onpointerenter={() => (hovered = { id, data: data[index] })}
 		onpointerleave={() => (hovered = undefined)}
 		style:left={`${left}%`}
@@ -171,7 +174,10 @@
 			</div>
 
 			<div class="flex flex-col gap-4">
-				<div class="flex max-h-[60vh] overflow-x-hidden overflow-y-auto">
+				<div
+					class="flex max-h-[60vh] overflow-x-hidden overflow-y-auto"
+					onscroll={() => (hovered = undefined)}
+				>
 					<div class="cta-small h-fit w-1/4 border-r-2 border-black">
 						{#each data as { neighborhood, zip } (zip)}
 							<div class="flex h-10 items-center justify-between gap-2">
@@ -214,7 +220,7 @@
 									{@const diff = zori - acs}
 									{@const position = (xScale(acs) + xScale(zori)) / 2}
 									<div
-										class=" absolute top-2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm"
+										class="pointer-events-none absolute top-2 -translate-x-1/2 -translate-y-1/2 font-mono text-sm"
 										style:left={`${position}%`}
 									>
 										{formatNumber(diff)}
@@ -245,7 +251,7 @@
 </Section>
 
 {#if hovered}
-	<ChartTooltip targetId={hovered?.id}>
+	<ChartTooltip targetId={hovered?.id} close={() => (hovered = undefined)}>
 		<div class="markdown">
 			<p>
 				<strong>{hovered.data.neighborhood}: {hovered.data.zip}</strong> has {#if hovered.data.zori}a

@@ -42,7 +42,8 @@
 			style: mapStyle,
 			container: mapContainer,
 			minZoom: 4,
-			maxZoom: 13
+			maxZoom: 13,
+			cooperativeGestures: true
 		});
 
 		await map.once('load');
@@ -171,15 +172,14 @@
 </script>
 
 <figure
-	class={[
-		'relative h-full min-h-screen w-full',
-		mapInteractive ? 'pointer-events-auto' : 'pointer-events-none'
-	]}
+	class={['relative h-dvh w-full', mapInteractive ? 'pointer-events-auto' : 'pointer-events-none']}
 >
 	<div class="absolute inset-0">
 		<div class="h-full w-full" bind:this={mapContainer}></div>
 		{#if index && index > 0}
-			<MapLegend />
+			<div class={{ 'hidden sm:block': mapInteractive }}>
+				<MapLegend />
+			</div>
 		{/if}
 	</div>
 	{#if !loaded.value}

@@ -38,8 +38,10 @@
 </script>
 
 <div
-	class="bg-white-true absolute top-8 right-8 flex w-[280px] flex-col border border-black font-mono text-sm leading-none tracking-tight uppercase"
-	transition:fly={{ y: 15 }}
+	class={[
+		'bg-white-true absolute top-4 right-0 flex w-[280px] flex-col border border-black font-mono text-sm leading-none tracking-tight uppercase sm:right-4 '
+	]}
+	transition:fly={{ x: '100%', duration: 300 }}
 >
 	<button
 		onclick={() => (collapsed = !collapsed)}
