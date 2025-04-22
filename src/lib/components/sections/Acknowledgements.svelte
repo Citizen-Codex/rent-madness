@@ -6,7 +6,7 @@
 	const sections = page.data['acknowledgments'];
 </script>
 
-<Section borderTop id="acknowledgments">
+<Section borderTop id="acknowledgments" class="!bg-seafoam">
 	<div class="content-well-small flex flex-col gap-6 md:gap-10">
 		{#each sections as { subheading, content }, i (i)}
 			<div>

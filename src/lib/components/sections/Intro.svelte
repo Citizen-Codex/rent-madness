@@ -27,11 +27,6 @@
 
 	<Houses />
 
-	<div class="content-well-small label text-gray">
-		Source: Joint Center for Housing Studies of Harvard University, The State of the Nation's
-		Housing 2024
-	</div>
-
 	<Section>
 		<div class="body content-well-small">
 			{@html md(content['content-after'])}
