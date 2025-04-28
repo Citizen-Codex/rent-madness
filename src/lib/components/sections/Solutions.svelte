@@ -22,10 +22,12 @@
 	<div class="content-well-small lg:content-well-large flex flex-col gap-6 md:gap-10">
 		<ChapterNumber>6</ChapterNumber>
 		<div class="flex flex-col gap-10 lg:flex-row lg:gap-16">
-			<div class="flex basis-1/3 flex-col gap-6 md:gap-10 lg:max-w-md">
-				<h2 class="heading">{content.hed}</h2>
-				<div class="body">
-					{@html md(content.content)}
+			<div class="basis-1/3 lg:max-w-md">
+				<div class="sticky top-16 flex flex-col gap-6 md:gap-10">
+					<h2 class="heading">{content.hed}</h2>
+					<div class="body">
+						{@html md(content.content)}
+					</div>
 				</div>
 			</div>
 			<div class="flex basis-2/3 flex-col gap-6">
