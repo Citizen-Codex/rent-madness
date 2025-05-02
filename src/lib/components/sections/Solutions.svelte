@@ -47,7 +47,7 @@
 							}}
 							style={open[i] && `background-color: var(--color-${colors[i]});`}
 							class={[
-								'bg-white-true relative z-10 flex w-full items-center gap-6 rounded border border-black px-6 py-4 transition-colors',
+								'bg-white-true relative z-10 flex w-full cursor-pointer items-center gap-6 rounded border border-black px-6 py-4 transition-colors',
 								open[i] && text[i]
 							]}
 						>

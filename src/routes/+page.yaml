@@ -216,12 +216,12 @@ chapter-6:
 
          Adapting both of these methods could open up a new source of rental data that might be less resource-intensive to create and national in scope. However, the privacy implications of this approach are a real concern as it would intensify financial data mining. This tension could be mitigated by anonymizing individual account holder data and taking other data security precautions. But even then, this technique still isn’t perfect: renters who are unbanked and do not interact with large financial institutions would not be covered.
 
-    - summary: 'Nonprofit consortium for rental data: aggregate all data sources'
+    - summary: Data Infrastructure to Consolidate Many Sources
       detail: >
-        One of the primary barriers to granular, nationwide rental data is the fragmented nature of information on rental sources. One way to tackle this tangled web is by forming a nonprofit data consortium that could knit these rental data sources together. It would serve as an independent entity with the sole mission of making rent price data more transparent while protecting the interests of various parties. A potential model is the higher education sector. The National Student Clearinghouse is a nonprofit that serves as the primary data hub for postsecondary education enrollment records and data insights.
+        One of the primary barriers to granular, nationwide rental data is the fragmented nature of information on rental sources. One way to tackle this tangled web is with coordinated infrastructure that could knit these rental data sources together. A potential model is the higher education sector. The National Student Clearinghouse is a nonprofit that serves as the primary data hub for postsecondary education enrollment records and data insights.
 
 
-        Setting aside the organizational challenge and issues with data ownership (especially for proprietary data), there are still multiple technical hurdles to harmonizing this disjointed rental data under one roof. One must still coordinate handling data aggregated to different geographies and collected at various time intervals. And then there’s the problem of integrating data with varying sources of sampling bias. These are the types of issues that a well-structured nonprofit data consortium could address. It could create an essential resource for policymakers, researchers, and others seeking more rental data transparency.
+        Setting aside the organizational challenge and issues with data ownership (especially for proprietary data), there are still multiple technical hurdles to aggregating and harmonizing this disjointed rental data. One must still coordinate handling data aggregated to different geographies and collected at various time intervals. And then there’s the problem of integrating data with varying sources of sampling bias. These are the types of issues that a well-structured approach to data aggregation could solve. The resulting product could provide an essential resource for policymakers, researchers, and others seeking more rental data transparency.
 
 chapter-7:
   hed: Conclusion
