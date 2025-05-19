@@ -26,4 +26,11 @@
 	<meta property="twitter:image" content={page.data.image.src} />
 	<meta property="twitter:title" content={page.data.title} />
 	<meta property="twitter:description" content={page.data.description} />
+
+	<!-- Analaytics -->
+	<script
+		defer
+		data-domain="rentmadness.citizencodex.com"
+		src="https://plausible.io/js/script.js"
+	></script>
 </svelte:head>
