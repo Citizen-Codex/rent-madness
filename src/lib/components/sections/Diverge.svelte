@@ -194,12 +194,12 @@
 						{#each xScale.ticks(5) as tick (tick)}
 							<div
 								style:left={`${xScale(tick)}%`}
-								class="bg-gray-medium absolute inset-y-0 w-[0.5px]"
+								class="bg-gray-medium/50 absolute inset-y-0 w-px"
 							></div>
 						{/each}
 						{#each data as { zip, acs, zori }, i (zip)}
 							<div class="relative flex h-10 items-center gap-2">
-								<div class="bg-gray-medium absolute inset-x-0 h-[0.5px]"></div>
+								<div class="bg-gray-medium/50 absolute inset-x-0 h-px"></div>
 								{#if acs && zori}
 									<div
 										class="bg-gray absolute h-px"

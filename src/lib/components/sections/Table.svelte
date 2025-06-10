@@ -94,7 +94,7 @@
 				{#each content.table.rows as { sources, timeliness, granularity, completeness, availability, detail }, i (sources.title)}
 					<tr>
 						<td class="h-px !p-0">
-							<div class="flex h-full flex-col">
+							<div class="flex flex-col">
 								<div
 									class="flex grow-1 flex-col border-black bg-white p-3 md:p-4 lg:grow-0 lg:border-b"
 								>
@@ -177,10 +177,10 @@
 	}
 
 	th {
-		@apply bg-white-true sticky top-0 z-10 h-px border-b pt-4;
+		@apply bg-white-true sticky top-0 z-10 border-b pt-4;
 
 		div {
-			@apply flex h-full items-center justify-center border-t border-l;
+			@apply flex h-14 items-center justify-center border-t border-l lg:h-20;
 		}
 	}
 
